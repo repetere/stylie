@@ -1,0 +1,352 @@
+@import "variables.less";
+
+.ts-col-span{
+    float:left;
+    box-sizing: border-box;
+}
+
+.ts-container{
+    margin: 0 2em;
+}
+.ts-text-container{
+    max-width: @maxtextwidth;
+    margin: auto;
+}
+.ts-row{
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+    .ts-col-span12{
+        .ts-col-span;
+        width: percentage(12 / 12);
+    }
+    .ts-col-span11{
+        .ts-col-span;
+        width: percentage(11 / 12);
+    }
+    .ts-col-span10{
+        .ts-col-span;
+        width: percentage(10 / 12);
+    }
+    .ts-col-span9{
+        .ts-col-span;
+        width: percentage(9 / 12);
+    }
+    .ts-col-span8{
+        .ts-col-span;
+        width: percentage(8 / 12);
+    }
+    .ts-col-span7{
+        .ts-col-span;
+        width: percentage(7 / 12);
+    }
+    .ts-col-span6{
+        .ts-col-span;
+        width: percentage(6 / 12);
+    }
+    .ts-col-span5{
+        .ts-col-span;
+        width: percentage(5 / 12);
+    }
+    .ts-col-span4{
+        .ts-col-span;
+        width: percentage(4 / 12);
+    }
+    .ts-col-span3{
+        .ts-col-span;
+        width: percentage(3 / 12);
+    }
+    .ts-col-span2{
+        .ts-col-span;
+        width: percentage(2 / 12);
+    }
+    .ts-col-span1{
+        .ts-col-span;
+        width: percentage(1 / 12);
+    }
+    .ts-col-nofloat{
+        float:none;
+        margin: auto;
+    }
+
+    table.ts-table{
+        tr{
+            td,th{
+                float: none;
+                box-sizing:initial;
+            }
+        }
+    }
+}
+
+.ts-text-center{
+    text-align: center;
+}
+.ts-text-left{
+    text-align: left;
+}
+.ts-text-right{
+    text-align: right;
+}
+.ts-float-left{
+    float: left;
+}
+.ts-float-right{
+    float: right;
+}
+.ts-height-100{
+    height: 100%;
+}
+.ts-height-90{
+    height: 90%;
+}
+.ts-height-75{
+    height: 75%;
+}
+.ts-height-max-80{
+    max-height: 80%;
+}
+.ts-height-66{
+    height: 66%;
+}
+.ts-height-50{
+    height: 50%;
+}
+.ts-height-33{
+    height: 33%;
+}
+.ts-height-25{
+    height: 25%;
+}
+.ts-height-10{
+    height: 10%;
+}
+.ts-width-100{
+    width: 100%;
+}
+.ts-width-90{
+    width: 90%;
+}
+.ts-width-75{
+    width: 80%;
+}
+.ts-width-66{
+    width: 66%;
+}
+.ts-width-50{
+    width: 50%;
+}
+.ts-width-33{
+    width: 33%;
+}
+.ts-width-25{
+    width: 25%;
+}
+.ts-width-10{
+    width: 10%;
+}
+.ts-z-index-1000{
+  z-index: 1000;  
+}
+.ts-z-index-100{
+  z-index: 100;  
+}
+.ts-z-index-10{
+  z-index: 10;  
+}
+.ts-z-index-1{
+  z-index: 1;  
+}
+.ts-no-x-overflow{
+    overflow: auto;
+    overflow-x: hidden;
+}
+.ts-no-y-overflow{
+    overflow: auto;
+    overflow-y: hidden;
+}
+.ts-no-overflow{
+    overflow: hidden;
+}
+.ts-container-margin-xx{
+    margin-top:@sizexx;
+    margin-bottom:@sizexx;
+}
+.ts-container-margin-xl{
+    margin-top:@sizexl;
+    margin-bottom:@sizexl;
+}
+.ts-container-margin-lg{
+    margin-top:@sizelg;
+    margin-bottom:@sizelg;
+}
+.ts-container-margin-md{
+    margin-top:@sizemd;
+    margin-bottom:@sizemd;
+}
+.ts-container-margin-sm{
+    margin-top:@sizesm;
+    margin-bottom:@sizesm;
+}
+.ts-container-margin-xs{
+    margin-top:@sizexs;
+    margin-bottom:@sizexs;
+}
+.ts-container-margin-auto{
+    margin-left:auto;
+    margin-right:auto;
+}
+.ts-no-padding{
+    padding: 0;
+}
+.ts-padding-xx{
+    padding: @sizexx;
+}
+.ts-padding-xl{
+    padding: @sizexl;
+}
+.ts-padding-lg{
+    padding: @sizelg;
+}
+.ts-padding-md{
+    padding: @sizemd;
+}
+.ts-padding-sm{
+    padding: @sizesm;
+}
+.ts-padding-xs{
+    padding: @sizexs;
+}
+.ts-no-margin{
+    margin: 0;
+}
+.ts-margin-xx{
+    margin: @sizexx;
+}
+.ts-margin-xl{
+    margin: @sizexl;
+}
+.ts-margin-lg{
+    margin: @sizelg;
+}
+.ts-margin-md{
+    margin: @sizemd;
+}
+.ts-margin-sm{
+    margin: @sizesm;
+}
+.ts-margin-xs{
+    padding: @sizexs;
+}
+.ts-xs-spacing-padding{
+    padding: @sizexs 0;
+}
+.ts-small-spacing-padding{
+    padding: @sizesm 0;
+}
+.ts-md-spacing-padding{
+    padding: @sizemd 0;
+}
+.ts-lg-spacing-padding{
+    padding: @sizelg 0;
+}
+.ts-xl-spacing-padding{
+    padding: @sizexl 0;
+}
+.ts-xx-spacing-padding{
+    padding: @sizexx 0;
+}
+.ts-xs-spacing-margin{
+    margin: @sizexs 0;
+}
+.ts-sm-spacing-margin{
+    margin: @sizesm 0;
+}
+.ts-md-spacing-margin{
+    margin: @sizemd 0;
+}
+.ts-lg-spacing-margin{
+    margin: @sizelg 0;
+}
+.ts-xl-spacing-margin{
+    margin: @sizexl 0;
+}
+.ts-xx-spacing-margin{
+    margin: @sizexx 0;
+}
+.ts-ul-inline-block{
+    li{
+        display: inline-block;
+
+    }
+    &.ts-li-horz-spacing{
+        li{
+            margin-left: 1em;
+            margin-right: 1em;   
+        }
+    }
+}
+
+.ts-position-absolute{
+    position: absolute;
+}
+.ts-position-fixed{
+    position: fixed;
+}
+
+.ts-position-relative{
+    position: relative;
+}
+
+.ts-display-inline-block{
+    display: inline-block;
+}
+
+.ts-display-block{
+    display: block;
+}
+
+.ts-position-bottom{
+    bottom: 0;
+}
+
+.ts-position-top{
+    top: 0;
+}
+
+.ts-position-left{
+    left: 0;
+}
+.ts-position-right{
+    right: 0;
+}
+.ts-vertical-center{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.ts-clear-both{
+    clear: both;
+}
+.ts-clear-left{
+    clear: left;
+}
+.ts-clear-right{
+    clear: right;
+}
+.ts-pull-left{
+    float: left;
+}
+.ts-pull-right{
+    float: right;
+}
+
+.ts-hidden{
+    display: none;
+}

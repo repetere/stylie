@@ -1,0 +1,117 @@
+
+.ts-text-right{
+    text-align: right;
+}
+
+.ts-text-left{
+    text-align: left;
+}
+
+.ts-text-center{
+    text-align: center;
+}
+
+.ts-text-justify{
+    text-align: justify;
+}
+
+.ts-text-xs{
+    font-size:@percentxs;
+}
+
+.ts-text-sm{
+    font-size:@percentsm;
+}
+
+.ts-text-md{
+    font-size:@percentmd;
+}
+
+.ts-text-lg{
+    font-size:@percentlg;
+}
+
+.ts-text-xl{
+    font-size:@percentxl;
+}
+
+.ts-text-xx{
+    font-size:@percentxx;
+}
+
+.ts-text-bold{
+    font-weight: bold;
+}
+.ts-list-style-none{
+    list-style: none;
+}
+hr{
+    border: none;
+    border-bottom: 1px solid @dividerColor;
+}
+nav{
+    a{
+        color:@primaryTextColor;
+    }
+}
+a{
+    color: @accentColor;
+    text-decoration: none;
+}
+h1,h2,h3,h4,h5,h6{
+    // font-family: @sansseriffamily;
+    .ts-serif-clean;
+    line-height: 120%;
+    margin: 1em 0 -0.5em;
+    small{
+        color:lighten(@textcolor, 85%);
+    }
+    a{
+        color:@primaryTextColor;
+    }
+}
+summary{
+    .ts-serif-clean;
+}
+details{
+    .ts-sans-serif;
+}
+p,summary,details{
+    margin: 1.5em 0 0.5em;
+}
+h1{
+    font-size: @heading-size;
+}
+h2{
+    font-size: @heading-size*(7/8);
+}
+h3{
+    font-size: @heading-size*(6/8);
+}
+h4{
+    font-size: @heading-size*(5/8);
+}
+h5,h6{
+    font-size: @heading-size*(4/8);
+}
+ol{
+    li{
+
+    }
+    li::marker { 
+      width: 30px;
+      text-align: right;
+      margin-right: 10px;
+      display: inline-block;
+      background: #000;
+    }
+}
+blockquote{
+    .ts-sans-serif;
+    margin: 1.5em 3em;
+    border-top: 1px solid lighten(@textcolor, 85%);
+    border-bottom: 1px solid lighten(@textcolor, 85%);
+    p{
+        margin:1em 0;
+    }
+}

@@ -1,0 +1,879 @@
+<html class="ts">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" class="ts ts-height-100">
+
+<head>
+  <title>Stylie</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Yaw Joseph Etse" />
+  <meta name="description" content="Stylie is a barebones css framework generator for professionally designed style guides." />
+  <meta name="keywords" content="css framework, framework generator, barebones css template, css boilerplate" />
+  <meta name="Resource-type" content="Document" />
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="stylesheet" type="text/css" href="stylesheets/stylie.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/example.css">
+  <script src="js/example.min.js"></script>
+</head>
+
+<body class="ts-height-100 ts-no-x-overflow">
+  <header class="ts-position-fixed ts-position-top ts-width-100 ts-z-index-1000 ts-bg-text-primary-color ts-serif-clean">
+  <nav class="ts-container ts-position-top">
+    <menuitem class="ts-pull-right ts-nav-collapse">
+      <div class="ts-nav-collapse-button ts-text-right">
+        [-]
+      </div>
+      <ul id="navlinks" class="ts-nav-collapse-dropdown ts-z-index-1000 ts-bg-text-primary-color ts-position-absolute ts-position-right ts-no-padding ts-list-style-none ts-li-horz-spacing">
+        <li><a href="#color">Colors</a>
+        </li>
+        <li><a href="#typography">Typography</a>
+        </li>
+        <li><a href="#layout">Layout</a>
+        </li>
+        <!-- <li><a href="#element">Elements</a> </li> -->
+        <li><a href="#responsive">Responsive</a>
+        </li>
+        <li><a href="#customize">Customize</a>
+        </li>
+      </ul>
+    </menuitem>
+    <menuitem class="ts-pull-left">
+      <ul class="ts-ul-inline-block ts-no-padding">
+        <li><a href="#top" class="ts-text-xl ts-text-bold">Stylie</a>
+        </li>
+      </ul>
+    </menuitem>
+  </nav>
+</header>
+    <main class="ts-container ts-height-100 ">
+      <a name="#top"></a>
+<article class="ts-text-container  ts-height-100">
+  <section class="ts-vertical-center ts-width-66 ts-height-max-80 ts-no-x-overflow">
+    <h1 class="ts-text-center">Stylie</h1>
+    <summary class="ts-text-center">Stylie is a barebones css framework generator for professionally designed style guides.</summary>
+  </section>
+</article>
+<hr>
+        <a name="#gettingstarted"></a>
+<article class="ts-text-container ts-container-margin-xl">
+  <section>
+    <h2>Getting started
+      <small>using stylie</small>
+    </h2>
+    <p>Stylie is designed to generate responsive style guides from professionally designed compositions.</p>
+    <p>The generated style guides by default are based off of <i>em</i> CSS units, and 12 column, percentage based grids.</p>
+    <h6>Why use Stylie instead of [framework X]</h6>
+    <p>There are a lot of excellent full featured CSS frameworks to pick from; however, if you already posess a fully featured style guide, it quickly becomes extremely tedious to roll back the default styles from larger frameworks.</p>
+    <p>Many large CSS frameworks also come with JavaScript Dependencies, which adds to the overall weight of your design implementation.</p>
+    <p>Stylie generated style guides are always namesspaced (by default with [ts]), such that styles may be contained within specific elements and will not conflict with other CSS style definitions</p>
+    <p>This style guide generating alternative is designed to provide a workstream for generating a comprehensive and bespoke framework suited for your exact specifications.</p>
+    <h6>Methodology</h6>
+    <p>Most classes have six different size class modifiers</p>
+    <ul class="ts-text-sm">
+      <li>xs - extra small</li>
+      <li>sm - small</li>
+      <li>md - medium</li>
+      <li>lg - large</li>
+      <li>xl - extra large</li>
+      <li>xx - extra huge</li>
+    </ul>
+    <p>The default size and percent values can be modified by manipulating
+      <span class="ts-code">variables.less</span>
+    </p>
+    <p>The CSS class names follow the <i>[namespace]-[property]-[value]</i> naming convention. For example:</p>
+    <ul class="ts-text-sm">
+      <li>.ts-text-xl -
+        <span class="ts-text-xl">extra large text</span>
+      </li>
+      <li>.ts-text-accent-color -
+        <span class="ts-text-accent-color"> accent colored text</span>
+      </li>
+      <li class="ts-position-relative ts-clear-both">.ts-float-right -
+        <div class="ts-float-right ts-border-solid-micro">floated right element</div>
+      </li>
+    </ul>
+    <p>The verbose naming convention is intended to make generating composite LESS classes and prototyping HTML element css classes extremely efficient.</p>
+    <p>By default, the generated style guides are as light weight as possible (no external dependencies, no JavaScript dependencies).</p>
+    <p>The verbose naming convention is intended to make generating composite LESS classes and prototyping HTML element css classes extremely efficient.</p>
+  </section>
+</article>
+<hr>
+          <a name="#color"></a>
+<article class="ts-text-container ts-container-margin-xl">
+  <section class="ts-text-container">
+    <h2>Colors
+      <small>Standard Palette</small>
+    </h2>
+    <p>There are eight basic colors, they can be customized by modifying
+      <span class="ts-code">variables.less</span>
+    </p>
+    <p>
+      The color naming convention is based on Google's Material Design pattern (reference palettes: <a href="http://www.materialpalette.com/">www.materialpalette.com</a>).
+    </p>
+  </section>
+  <section class="ts-text-container">
+    <table class="ts ts-width-100 ts-text-center">
+      <tr>
+        <td class="ts-bg-dark-primary-color">Dark Primary Color</td>
+        <td class="ts-bg-primary-color">Primary Color</td>
+        <td class="ts-bg-light-primary-color">Light Primary Color</td>
+        <td class="ts-bg-text-primary-color">Text Primary Color</td>
+      </tr>
+      <tr>
+        <td class="ts-bg-accent-color">Accent Color</td>
+        <td class="ts-bg-primary-text-color ts-text-text-primary-color">Primary Text Color</td>
+        <td class="ts-bg-secondary-text-color">Secondary Text Color</td>
+        <td class="ts-bg-divider-text-color">Divider Color</td>
+      </tr>
+    </table>
+  </section>
+  <section>
+    <h3>Borders</h3>
+    <p>
+      <span class="ts-border-dark-primary-color example-color-border">.ts-border-dark-primary-color</span>
+
+      <span class="ts-border-primary-color example-color-border"> .ts-border-primary-color</span>
+
+      <span class="ts-border-light-primary-color example-color-border">.ts-border-light-primary-color</span>
+
+      <span class="ts-border-text-primary-color example-color-border ts-bg-primary-text-color ts-text-text-primary-color">.ts-border-text-primary-color</span>
+
+      <span class="ts-border-accent-color example-color-border">.ts-border-accent-color</span>
+
+      <span class="ts-border-primary-text-color example-color-border"> .ts-border-primary-text-color</span>
+
+      <span class="ts-border-secondary-text-color example-color-border">.ts-border-secondary-text-color</span>
+      <span class="ts-border-divider-text-color example-color-border">.ts-border-divider-text-color</span>
+
+    </p>
+    <h3>Backgrounds</h3>
+    <p>
+      <span class="ts-bg-dark-primary-color example-color-bg">.ts-bg-dark-primary-color</span>
+
+      <span class="ts-bg-primary-color example-color-bg"> .ts-bg-primary-color</span>
+
+      <span class="ts-bg-light-primary-color example-color-bg">.ts-bg-light-primary-color</span>
+
+      <span class="ts-bg-text-primary-color example-color-bg ">.ts-bg-text-primary-color</span>
+
+      <span class="ts-bg-accent-color example-color-bg">.ts-bg-accent-color</span>
+
+      <span class="ts-bg-primary-text-color example-color-bg ts-text-text-primary-color"> .ts-bg-primary-text-color</span>
+
+      <span class="ts-bg-secondary-text-color example-color-bg">.ts-bg-secondary-text-color</span>
+      <span class="ts-bg-divider-text-color example-color-bg">.ts-bg-divider-text-color</span>
+
+    </p>
+    <h3>Text</h3>
+    <p>
+      <span class="ts-text-dark-primary-color example-color-bg">.ts-text-dark-primary-color</span>
+
+      <span class="ts-text-primary-color example-color-bg"> .ts-text-primary-color</span>
+
+      <span class="ts-text-light-primary-color example-color-bg">.ts-text-light-primary-color</span>
+
+      <span class="ts-text-text-primary-color example-color-bg ts-bg-primary-text-color">.ts-text-text-primary-color</span>
+
+      <span class="ts-text-accent-color example-color-bg">.ts-text-accent-color</span>
+
+      <span class="ts-text-primary-text-color example-color-bg"> .ts-text-primary-text-color</span>
+
+      <span class="ts-text-secondary-text-color example-color-bg">.ts-text-secondary-text-color</span>
+      <span class="ts-text-divider-text-color example-color-bg">.ts-text-divider-text-color</span>
+    </p>
+    <h3>Shadows</h3>
+    <p>
+      <span class="ts-bg-primary-text-color example-color-bg ts-text-text-primary-color  ts-shadow"> .ts-shadow</span>
+      <span class="ts-bg-light-primary-color example-color-bg ts-shadow">.ts-shadow</span>
+      <span class="ts-border-light-primary-color example-color-border ts-shadow">.ts-shadow</span>
+    </p>
+  </section>
+</article>
+<hr>
+            <a name="#typography"></a>
+<article class="ts-text-container ts-container-margin-xl">
+  <section>
+    <h2>Typography
+      <small>fonts, sizes and alignment</small>
+    </h2>
+    <p>The default headings have a serif typeface (lyontext), the body copy uses a sans-serif typeface (potano).</p>
+  </section>
+  <section>
+    <h3>Text Size</h3>
+    <p>
+      <span class="ts-text-xs example-color-bg">.ts-text-xs</span>
+      <span class="ts-text-sm example-color-bg">.ts-text-sm</span>
+      <span class="ts-text-md example-color-bg">.ts-text-md</span>
+      <span class="ts-text-lg example-color-bg">.ts-text-lg</span>
+      <span class="ts-text-xl example-color-bg">.ts-text-xl</span>
+      <span class="ts-text-xx example-color-bg">.ts-text-xx</span>
+    </p>
+  </section>
+  <section>
+    <h1>H1 Heading.</h1>
+    <h2>H2 Heading.</h2>
+    <h3>H3 Heading.</h3>
+    <h4>H4 Heading.</h4>
+    <h5>H5 Heading.</h5>
+    <h6>H6 Heading.</h6>
+  </section>
+  <section>
+    <h3>Body
+      <small>and fonts</small>
+    </h3>
+    <h4>Body Copy &lt;p&gt;</h4>
+    <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+    <h4>Summary Text &lt;summary&gt;</h4>
+    <summary>Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</summary>
+    <h4>Font Classes</h4>
+    <h6>.ts-serif</h6>
+    <code class="example-code-block ts-serif"> .ts-serif
+      <br> font-family: ebgaramond,garamond,Georgia,serif;
+    </code>
+    <h6>.ts-serif-clean</h6>
+    <code class="example-code-block ts-serif-clean">
+      <span class="ts-serif-clean">.ts-serif-clean
+        <br> font-family: lyontext,garamond,Georgia,serif;
+      </span>
+    </code>
+    <h6>.ts-sans-serif</h6>
+    <code class="example-code-block ts-sans-serif">
+      <span class="ts-sans-serif">.ts-sans-serif
+        <br> font-family: pontano,"Helvetica Neue",Helvetica,Arial,sans-serif;
+      </span>
+    </code>
+  </section>
+  <section>
+    <h3>Alignment Classes </h3>
+    <h6>.ts-text-left</h6>
+    <p class="ts-text-left">Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+    <h6>.ts-text-right</h6>
+    <p class="ts-text-right">Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+    <h6>.ts-text-center</h6>
+    <p class="ts-text-center">Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+    <h6>.ts-text-justify</h6>
+    <p class="ts-text-justify">Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+  </section>
+  <section>
+    <h3>Lists Classes </h3>
+    <h6>Ordered List &lt;ol&gt;</h6>
+    <ol>
+      <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
+      <li>Donec id elit non mi porta gravida at eget metus.</li>
+      <li>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</li>
+    </ol>
+    <h6>Unordered List &lt;ul&gt;</h6>
+    <ul>
+      <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
+      <li>Donec id elit non mi porta gravida at eget metus.</li>
+      <li>Duis mullis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</li>
+    </ul>
+    <h6>Horizontal Unordered List &lt;ul.ts-ul-inline-block&gt; </h6>
+    <ul class="ts-ul-inline-block ts-li-horz-spacing ts-no-padding">
+      <li class="ts-border-solid-micro">Maecenas</li>
+      <li class="ts-border-solid-micro">Sed</li>
+      <li class="ts-border-solid-micro">Donec</li>
+      <li class="ts-border-solid-micro">Duis</li>
+    </ul>
+  </section>
+</article>
+<hr>
+              <a name="#layout"></a>
+<article class="ts-text-container ts-container-margin-xl">
+  <section>
+    <h2>Layout
+      <small>Grid System, and positioning</small>
+    </h2>
+    <p>There's a basic 12 column grid that's percent based. Rows and columns can be nested, and the box sizing property is set to:
+      <span class="ts-code">border-box</span>
+    </p>
+  </section>
+  <section>
+    <h6>Basic Grid
+  <small>.ts-row</small>
+</h6>
+<div class="ts-row ts-text-xs example-grid-border ts-container-margin-lg">
+  <div class="ts-col-span12">
+    <strong>Example: 12 columns</strong>
+  </div>
+  <div class="ts-col-span1">.ts-col-span1</div>
+  <div class="ts-col-span1">.ts-col-span1</div>
+  <div class="ts-col-span1">.ts-col-span1</div>
+  <div class="ts-col-span1">.ts-col-span1</div>
+  <div class="ts-col-span1">.ts-col-span1</div>
+  <div class="ts-col-span1">.ts-col-span1</div>
+  <div class="ts-col-span1">.ts-col-span1</div>
+  <div class="ts-col-span1">.ts-col-span1</div>
+  <div class="ts-col-span1 ts-screensm-col-span12">.ts-col-span1</div>
+  <div class="ts-col-span1">.ts-col-span1</div>
+  <div class="ts-col-span1">.ts-col-span1</div>
+  <div class="ts-col-span1">.ts-col-span1</div>
+  <textarea class="ts-col-span12 ts-sans-serif example-grid-border ts-bg-light-primary-color">
+    <div class="ts-row">
+      <div class="ts-col-span1">.ts-col-span1</div>
+      <div class="ts-col-span1">.ts-col-span1</div>
+      <div class="ts-col-span1">.ts-col-span1</div>
+      <div class="ts-col-span1">.ts-col-span1</div>
+      <div class="ts-col-span1">.ts-col-span1</div>
+      <div class="ts-col-span1">.ts-col-span1</div>
+      <div class="ts-col-span1">.ts-col-span1</div>
+      <div class="ts-col-span1">.ts-col-span1</div>
+      <div class="ts-col-span1">.ts-col-span1</div>
+      <div class="ts-col-span1">.ts-col-span1</div>
+      <div class="ts-col-span1">.ts-col-span1</div>
+      <div class="ts-col-span1">.ts-col-span1</div>
+    </div>
+  </textarea>
+</div>
+<div class="ts-row">
+
+</div>
+<div class="ts-row ts-text-xs example-grid-border ts-container-margin-lg">
+  <div class="ts-col-span12">
+    <strong>Example: Mixed column size examples</strong>
+  </div>
+  <div class="ts-col-span2">.ts-col-span2</div>
+  <div class="ts-col-span2">.ts-col-span2</div>
+  <div class="ts-col-span4">.ts-col-span4</div>
+  <div class="ts-col-span2">.ts-col-span2</div>
+  <div class="ts-col-span2">.ts-col-span2</div>
+</div>
+<div class="ts-row ts-text-xs example-grid-border ts-container-margin-lg">
+  <div class="ts-col-span3">.ts-col-span3</div>
+  <div class="ts-col-span6">.ts-col-span6</div>
+  <div class="ts-col-span3">.ts-col-span3</div>
+</div>
+<div class="ts-row ts-text-xs example-grid-border ts-container-margin-lg">
+  <div class="ts-col-span8">.ts-col-span8</div>
+  <div class="ts-col-span4">.ts-col-span4</div>
+</div>
+<div class="ts-row ts-text-xs example-grid-border ts-container-margin-lg">
+  <div class="ts-col-span9">.ts-col-span9</div>
+  <div class="ts-col-span3">.ts-col-span3</div>
+</div>
+<div class="ts-row ts-text-xs example-grid-border ts-container-margin-lg">
+  <div class="ts-col-span7">.ts-col-span7</div>
+  <div class="ts-col-span5">.ts-col-span5</div>
+</div>
+<div class="ts-row ts-text-xs example-grid-border ts-container-margin-lg">
+  <div class="ts-col-span10">.ts-col-span10</div>
+  <div class="ts-col-span2">.ts-col-span2</div>
+</div>
+<div class="ts-row ts-text-xs example-grid-border ts-container-margin-lg">
+  <div class="ts-col-span12">.ts-col-span12</div>
+</div>
+</section>
+      <section>
+        nested grids
+      </section>
+      <section>
+        <h3>Positioning</h3>
+<h6>Floats</h6>
+<p>HTML elements can use short hand classes to define the css float property</p>
+<div class="example-border ts-container-margin-lg ts-row">
+  <span class="ts-bg-light-primary-color example-color-bg ts-pull-left ts-border-solid-micro">.ts-pull-left / .ts-float-left</span>
+</div>
+<div class="example-border ts-container-margin-lg ts-row">
+  <span class="ts-bg-light-primary-color example-color-bg ts-pull-right ts-border-solid-micro">.ts-pull-right / .ts-float-right</span>
+</div>
+<p>HTML elements can also use short hand classes to define the css clear property</p>
+<ul class="ts-text-sm">
+  <li>.ts-clear-left - clear left</li>
+  <li>.ts-clear-right - clear right</li>
+  <li>.ts-clear-both - clear both</li>
+</ul>
+<h6>Z-index</h6>
+<div class="example-border ts-container-margin-lg ts-row  ts-position-relative ts-text-right">
+  <span class="ts-bg-divider-text-color example-color-bg ts-z-index-1 ts-position-absolute ts-width-90 ts-position-left ts-shadow ts-border-solid-micro ">.ts-z-index-1</span>
+  <span class="ts-bg-light-primary-color example-color-bg ts-z-index-10 ts-position-absolute ts-width-66 ts-position-left ts-shadow ts-border-solid-micro">.ts-z-index-10</span>
+  <span class="ts-bg-primary-color example-color-bg ts-z-index-100 ts-position-absolute ts-width-50 ts-position-left ts-shadow ts-border-solid-micro">.ts-z-index-100</span>
+  <span class="ts-bg-accent-color example-color-bg ts-z-index-1000 ts-position-absolute ts-width-25 ts-position-left ts-shadow ts-border-solid-micro">.ts-z-index-1000</span>
+  <p>
+    &nbsp;
+  </p>
+</div>
+<p>HTML elements can use short hand classes to define the four preset css z-index properties</p>
+<ul class="ts-text-sm">
+  <li>.ts-z-index-1 - z-index:1</li>
+  <li>.ts-z-index-10 - z-index:10</li>
+  <li>.ts-z-index-1000 - z-index:1000</li>
+  <li>.ts-z-index-10000 - z-index:10000</li>
+</ul>
+<h6>Positions</h6>
+<p>The respective CSS position properties have appropriate short-handed class names</p>
+<ul class="ts-text-sm">
+  <li>.ts-position-absolute</li>
+  <li>.ts-position-fixed</li>
+  <li>.ts-position-relative</li>
+  <li>.ts-display-inline-block</li>
+  <li>.ts-display-block</li>
+</ul>
+<p>There are also short hand classes to absolutely postion elements</p>
+<ul class="ts-text-sm">
+  <li>.ts-position-top</li>
+  <li>.ts-position-left</li>
+  <li>.ts-position-right</li>
+  <li>.ts-position-bottom</li>
+</ul>
+<p>There's one special position helper class to position elements vertically in the center of a parent element (The parent element must be positioned relatively).</p>
+<div class="ts-row ts-border-solid-micro ts-container-margin-lg ts-text-center ts-text-sm ts-bg-primary-text-color ts-height-33 ts-position-relative">
+  <div class="ts-bg-text-primary-color ts-padding-xl ts-vertical-center">
+    .ts-vertical-center
+  </div>
+
+</div>
+          <h3>Box sizing</h3>
+<p>HTML elements grid level elements are border-box sized</p>
+<h6>Margins</h6>
+<p>HTML elements can also use short hand classes to define the the size of the css margin property</p>
+<div class="ts-row ts-border-solid-micro ts-container-margin-lg">
+  <div class=" ts-border-solid-micro ts-no-margin">
+    .ts-no-margin
+  </div>
+</div>
+<div class="ts-row ts-border-solid-micro ts-container-margin-lg">
+  <div class=" ts-border-solid-micro ts-margin-xs">
+    .ts-margin-xs
+  </div>
+</div>
+<div class="ts-row ts-border-solid-micro ts-container-margin-lg">
+  <div class=" ts-border-solid-micro ts-margin-sm">
+    .ts-margin-sm
+  </div>
+</div>
+<div class="ts-row ts-border-solid-micro ts-container-margin-lg">
+  <div class=" ts-border-solid-micro ts-margin-md">
+    .ts-margin-md
+  </div>
+</div>
+<div class="ts-row ts-border-solid-micro ts-container-margin-lg">
+  <div class=" ts-border-solid-micro ts-margin-lg">
+    .ts-margin-lg
+  </div>
+</div>
+<div class="ts-row ts-border-solid-micro ts-container-margin-lg">
+  <div class=" ts-border-solid-micro ts-margin-xl">
+    .ts-margin-xl
+  </div>
+</div>
+<div class="ts-row ts-border-solid-micro ts-container-margin-lg">
+  <div class=" ts-border-solid-micro ts-margin-xx">
+    .ts-margin-xx
+  </div>
+</div>
+<h6>Paddings</h6>
+<p>HTML elements can also use short hand classes to define the the size of the css padding property</p>
+<div class="ts-row ts-border-solid-micro ts-container-margin-lg">
+  <div class=" ts-border-solid-micro ts-no-padding">
+    .ts-no-padding
+  </div>
+</div>
+<div class="ts-row ts-border-solid-micro ts-container-margin-lg">
+  <div class=" ts-border-solid-micro ts-padding-xs">
+    .ts-padding-xs
+  </div>
+</div>
+<div class="ts-row ts-border-solid-micro ts-container-margin-lg">
+  <div class=" ts-border-solid-micro ts-padding-sm">
+    .ts-padding-sm
+  </div>
+</div>
+<div class="ts-row ts-border-solid-micro ts-container-margin-lg">
+  <div class=" ts-border-solid-micro ts-padding-md">
+    .ts-padding-md
+  </div>
+</div>
+<div class="ts-row ts-border-solid-micro ts-container-margin-lg">
+  <div class=" ts-border-solid-micro ts-padding-lg">
+    .ts-padding-lg
+  </div>
+</div>
+<div class="ts-row ts-border-solid-micro ts-container-margin-lg">
+  <div class=" ts-border-solid-micro ts-padding-xl">
+    .ts-padding-xl
+  </div>
+</div>
+<div class="ts-row ts-border-solid-micro ts-container-margin-lg">
+  <div class=" ts-border-solid-micro ts-padding-xx">
+    .ts-padding-xx
+  </div>
+</div>
+            <h3>Height & Width</h3>
+<h6>Height</h6>
+<div class="ts-row ts-border-solid-micro ts-container-margin-lg ts-text-center ts-text-sm ts-height-33">
+  <div class="ts-col-span3 ts-border-solid-micro ts-height-10">
+    .ts-height-10
+  </div>
+  <div class="ts-col-span3 ts-border-solid-micro ts-height-25">
+    .ts-height-25
+  </div>
+  <div class="ts-col-span3 ts-border-solid-micro ts-height-33">
+    .ts-height-33
+  </div>
+  <div class="ts-col-span3 ts-border-solid-micro ts-height-50">
+    .ts-height-50
+  </div>
+</div>
+<div class="ts-row ts-border-solid-micro ts-container-margin-lg ts-text-center ts-text-sm ts-height-33">
+  <div class="ts-col-span3 ts-border-solid-micro ts-height-100">
+    .ts-height-100
+  </div>
+  <div class="ts-col-span3 ts-border-solid-micro ts-height-90">
+    .ts-height-90
+  </div>
+  <div class="ts-col-span3 ts-border-solid-micro ts-height-75">
+    .ts-height-75
+  </div>
+  <div class="ts-col-span3 ts-border-solid-micro ts-height-66">
+    .ts-height-66
+  </div>
+</div>
+<h6>Width</h6>
+<div class="ts-row ts-border-solid-micro ts-container-margin-lg ts-text-center  ts-text-xs ">
+  <div class="ts-border-solid-micro ts-width-10">
+    .ts-width-10
+  </div>
+  <div class="ts-border-solid-micro ts-width-25">
+    .ts-width-25
+  </div>
+  <div class="ts-border-solid-micro ts-width-33">
+    .ts-width-33
+  </div>
+  <div class="ts-border-solid-micro ts-width-50">
+    .ts-width-50
+  </div>
+  <div class="ts-border-solid-micro ts-width-66">
+    .ts-width-66
+  </div>
+  <div class="ts-border-solid-micro ts-width-75">
+    .ts-width-75
+  </div>
+  <div class="ts-border-solid-micro ts-width-90">
+    .ts-width-90
+  </div>
+  <div class="ts-border-solid-micro ts-width-100">
+    .ts-width-100
+  </div>
+</div>
+              <h3>Containers</h3>
+<h6>Height containers</h6>
+<div class="ts-row ts-border-solid-micro ts-container-margin-lg ts-text-center ts-text-sm ts-bg-primary-text-color">
+  <div class="ts-bg-text-primary-color ts-container-margin-xx">
+    .ts-container-margin-xx
+  </div>
+  <hr class="ts-no-margin">
+  <div class="ts-bg-text-primary-color ts-container-margin-xl">
+    .ts-container-margin-xl
+  </div>
+  <hr class="ts-no-margin">
+  <div class="ts-bg-text-primary-color ts-container-margin-lg">
+    .ts-container-margin-lg
+  </div>
+  <hr class="ts-no-margin">
+  <div class="ts-bg-text-primary-color ts-container-margin-md">
+    .ts-container-margin-md
+  </div>
+  <hr class="ts-no-margin">
+  <div class="ts-bg-text-primary-color ts-container-margin-sm">
+    .ts-container-margin-sm
+  </div>
+  <hr class="ts-no-margin">
+  <div class="ts-bg-text-primary-color ts-container-margin-xs">
+    .ts-container-margin-xs
+  </div>
+</div>
+<h6>Width containers</h6>
+<div class="ts-row ts-border-solid-micro ts-container-margin-lg ts-text-center ts-text-sm ts-bg-primary-text-color">
+  <div class="ts-bg-text-primary-color ts-container-margin-md ts-container">
+    .ts-container
+  </div>
+  <hr class="ts-no-margin">
+  <div class="ts-bg-text-primary-color ts-container-margin-md ts-text-container">
+    .ts-text-container
+  </div>
+  <hr class="ts-no-margin">
+  <div class="ts-bg-text-primary-color ts-container-margin-md ts-container-margin-auto ts-width-25">
+    .ts-container-margin-auto
+  </div>
+</div>
+<h6>Content containers</h6>
+<div class="ts-row ts-border-solid-micro ts-container-margin-lg ts-text-center ts-text-sm ts-bg-primary-text-color">
+  <div class="ts-bg-text-primary-color ts-container-margin-md ts-container ts-no-x-overflow  ts-height-10">
+    .ts-no-x-overflow
+    <hr>
+    <ul class="ts-text-left">
+      <li>you can also use</li>
+      <li>
+        <strong>.ts-no-y-overflow:</strong> for preventing y-overflow</li>
+      <li>
+        <strong>.ts-no-overflow:</strong> for preventing all overflows</li>
+    </ul>
+  </div>
+  <hr class="ts-no-margin">
+  <div class="ts-bg-text-primary-color ts-container-margin-md ts-text-container ts-md-spacing-padding">
+    .ts-md-spacing-padding
+  </div>
+  <hr class="ts-no-margin">
+  <div class="ts-bg-text-primary-color ts-container-margin-md ts-text-container ts-xl-spacing-margin" style="margin-left:auto; margin-right:auto;">
+    .ts-xl-spacing-margin
+  </div>
+</div>
+      </section>
+</article>
+<hr>
+                <!--
+                <a name="#element"></a>
+<article class="ts-text-container ts-container-margin-xl">
+  <section>
+    <h3>Inline Elements </h3>
+    <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+
+    <blockquote>
+      <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+    </blockquote>
+  </section>
+  <section class="ts-text-container">
+    <h4>h4. Bootstrap heading
+      <small>Secondary text</small>
+    </h4>
+    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
+    <ol>
+      <li>
+        <p>The four most im­por­tant ty­po­graphic choices you make in any doc­u­ment are <a href="point-size.html" class="xref">point size</a>, <a href="line-spacing.html" class="xref">line spac­ing</a>, <a href="line-length.html" class="xref">line length</a>, and font (pas­sim), be­cause those choices de­ter­mine how the <a href="body-text.html" class="xref">body text</a>
+          <span pollen="no-hyphens">looks.</span>
+        </p>
+      </li>
+      <li>
+        <p><a href="point-size.html" class="xref">Point size</a> should be 10–12 points in printed doc­u­ments, 15-25 pix­els on the&nbsp;
+          <span pollen="no-hyphens">web.</span>
+        </p>
+      </li>
+      <li>
+        <p><a href="line-spacing.html" class="xref">Line spac­ing</a> should be 120–145% of the point&nbsp;
+          <span pollen="no-hyphens">size.</span>
+        </p>
+      </li>
+      <li>
+        <p>The av­er­age <a href="line-length.html" class="xref">line length</a> should be 45–90 char­ac­ters (in­clud­ing
+          <span pollen="no-hyphens">spaces).</span>
+        </p>
+      </li>
+      <li>
+        <p>The eas­i­est and most vis­i­ble im­prove­ment you can make to your ty­pog­ra­phy is to use a pro­fes­sional font, like those found in <a href="font-recommendations.html" class="xref">font rec­om­men­da­tions</a>.</p>
+      </li>
+      <li>
+        <p>Avoid <a href="goofy-fonts.html" class="xref">goofy fonts</a>, <a href="monospaced-fonts.html" class="xref">mono­spaced fonts</a>, and <a href="system-fonts.html" class="xref">sys­tem fonts</a>, es­pe­cially <a href="times-new-roman.html" class="xref">Times New Ro­man</a> and
+          <span pollen="no-hyphens">Arial.</span>
+        </p>
+      </li>
+    </ol>
+    <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+  </section>
+</article>
+<hr>
+                -->
+                <a name="#responsive"></a>
+<article class="ts-text-container ts-container-margin-xl">
+  <section>
+    <h2>Responsive
+      <small>media queries</small>
+    </h2>
+    <p>The <i>screen[xs:xx]</i> naming convention is used to control the responsive elements by media query.</p>
+    <p>The default size and percent values can be modified by manipulating
+      <span class="ts-code">variables.less</span>
+    </p>
+    <h6>Visibility</h6>
+    <p>It's possible to hide elements based on the size of the screen</p>
+    <ul class="ts-text-sm">
+      <li>.ts-screenxs-hidden - hide element when screen is extra small sized</li>
+      <li>.ts-screensm-hidden - hide element when screen is small sized</li>
+      <li>.ts-screenmd-hidden - hide element when screen is medium sized</li>
+      <li>.ts-screenlg-hidden - hide element when screen is large sized</li>
+      <li>.ts-screenxl-hidden - hide element when screen is extra large sized</li>
+      <li>.ts-screenxx-hidden - hide element when screen is extra huge sized</li>
+    </ul>
+    <h6>Grid</h6>
+    <p>You can set the size of a column based on the screen size using the screen[xs:xx] naming convention</p>
+    <ul class="ts-text-sm">
+      <li>.ts-screenxs-col-span3 - span 3 columns when screen is extra small sized</li>
+      <li>.ts-screensm-col-span5 - span 5 columns when screen is small sized</li>
+      <li>.ts-screenmd-col-span2 - span 2 columns when screen is medium sized</li>
+      <li>.ts-screenlg-col-span1 - span 1 column when screen is large sized</li>
+      <li>.ts-screenxl-col-span12 - span 12 columns when screen is extra large sized</li>
+      <li>.ts-screenxx-col-span8 - span 8 columns when screen is extra huge sized</li>
+    </ul>
+    <h6>Headings</h6>
+    <p>Heading sizes are calculated as ratios based on the size of the screen and the default <i>@heading-size</i>.</p>
+    <ul class="ts-text-xs">
+      <li>h1 = 8/8 * h1</li>
+      <li>h2 = 7/8 * h1</li>
+      <li>h3 = 6/8 * h1</li>
+      <li>h4 = 5/8 * h1</li>
+      <li>h5 = 4/8 * h1</li>
+      <li>h6 = 4/8 * h1</li>
+    </ul>
+    <p>Examples:</p>
+    <ul class="ts-text-sm">
+      <li>h1 on extra screen - font-size: (@heading-size * @headingxs);</li>
+      <li>h2 on medium screen - font-size: (@heading-size*(7/8) * @headingmd);</li>
+      <li>h3 on extra large screen - font-size: (@heading-size*(6/8) * @headingxl);</li>
+      <li>h4 on small screen - font-size: (@heading-size*(5/8) * @headingsm);</li>
+    </ul>
+    <h6>Nav Elements</h6>
+    <p>The nav links will collapse when the screen is smaller than <i>@navcollapse</i>
+    </p>
+  </section>
+</article>
+<hr>
+                  <a name="#customize"></a>
+<article class="ts-text-container ts-container-margin-xl">
+  <section>
+    <h2>Customize
+      <small>default values</small>
+    </h2>
+    <p>The default size and percent values can be modified by manipulating
+      <span class="ts-code">variables.less</span>
+    </p>
+    <div class="ts-row ts-text-xs">
+
+      <div class="ts-col-span4">
+        <h6>EM Size</h6>
+        <ul>
+          <li>@sizexs: <i>.1em;</i>
+          </li>
+          <li>@sizesm: <i>.25em;</i>
+          </li>
+          <li>@sizemd: <i>.5em;</i>
+          </li>
+          <li>@sizelg: <i>1em;</i>
+          </li>
+          <li>@sizexl: <i>3em;</i>
+          </li>
+          <li>@sizexx: <i>5em;</i>
+          </li>
+        </ul>
+      </div>
+      <div class="ts-col-span4">
+        <h6>Percent Size</h6>
+        <ul>
+          <li>@percentxs: <i>70%;</i>
+          </li>
+          <li>@percentsm: <i>85%;</i>
+          </li>
+          <li>@percentmd: <i>100%;</i>
+          </li>
+          <li>@percentlg: <i>115%;</i>
+          </li>
+          <li>@percentxl: <i>130%;</i>
+          </li>
+          <li>@percentxx: <i>150%;</i>
+          </li>
+        </ul>
+      </div>
+
+      <div class="ts-col-span4">
+        <h6>Colors</h6>
+        <ul>
+          <li>@darkPrimaryColor: <i>#455A64;</i>
+          </li>
+          <li>@primaryColor: <i>#607D8B;</i>
+          </li>
+          <li>@lightPrimaryColor: <i>#CFD8DC;</i>
+          </li>
+          <li>@textPrimaryColor: <i>#FFFFFF;</i>
+          </li>
+          <li>@accentColor: <i>#03A9F4;</i>
+          </li>
+          <li>@primaryTextColor: <i>#212121;</i>
+          </li>
+          <li>@secondaryTextColor: <i>#727272;</i>
+          </li>
+          <li>@dividerColor: <i>#B6B6B6;</i>
+          </li>
+        </ul>
+      </div>
+      <div class="ts-col-span4">
+        <h6>Typography</h6>
+        <ul>
+          <li>@heading-size: <i>3em;</i>
+          </li>
+          <li>@maxtextwidth: <i>36em;</i>
+          </li>
+        </ul>
+      </div>
+      <div class="ts-col-span4">
+        <h6>Media Query Screen</h6>
+        <ul>
+          <li>@screenxs: <i>20em;</i>
+          </li>
+          <li>@screensm: <i>29em;</i>
+          </li>
+          <li>@screenmd: <i>29em;</i>
+          </li>
+          <li>@screenlg: <i>50em;</i>
+          </li>
+          <li>@screenxl: <i>50em;</i>
+          </li>
+          <li>@screenxx: <i>50em;</i>
+          </li>
+        </ul>
+
+      </div>
+      <div class="ts-col-span4">
+        <h6>Media Query Heading</h6>
+        <ul>
+          <li>@headingxs: <i>.4em;</i>
+          </li>
+          <li>@headingsm: <i>.6em;</i>
+          </li>
+          <li>@headingmd: <i>1.2em;</i>
+          </li>
+          <li>@headinglg: <i>1.2em;</i>
+          </li>
+          <li>@headingxl: <i>1.2em;</i>
+          </li>
+          <li>@headingxx: <i>1.2em;</i>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+
+
+
+  </section>
+</article>
+<hr>
+                    <footer class="ts-row ts-serif-clean">
+  <div class="ts-col-span6 ts-text-sm">
+    Curated with <a href="http://getperiodic.org" target="_blank">Periodic</a>
+  </div>
+  <div class="ts-col-span6 ts-pull-right ts-text-right ts-text-sm">
+    <a href="https://github.com/typesettin/stylie" target="_blank">fork on github</a> | Typesettin &copy;
+    
+      2015
+  </div>
+</footer>
+</main>
+<!-- /minimal-container -->
+<script>
+(function(i, s, o, g, r, a, m) {
+  i['GoogleAnalyticsObject'] = r;
+  i[r] = i[r] || function() {
+    (i[r].q = i[r].q || []).push(arguments)
+  }, i[r].l = 1 * new Date();
+  a = s.createElement(o),
+    m = s.getElementsByTagName(o)[0];
+  a.async = 1;
+  a.src = g;
+  m.parentNode.insertBefore(a, m)
+})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+ga('create', 'UA-52892914-6', 'auto');
+ga('send', 'pageview');
+</script>
+</body>
+
+</html>

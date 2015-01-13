@@ -1,0 +1,44 @@
+<a name="#gettingstarted"></a>
+<article class="ts-text-container ts-container-margin-xl">
+  <section>
+    <h2>Getting started
+      <small>using stylie</small>
+    </h2>
+    <p>Stylie is designed to generate responsive style guides from professionally designed compositions.</p>
+    <p>The generated style guides by default are based off of <i>em</i> CSS units, and 12 column, percentage based grids.</p>
+    <h6>Why use Stylie instead of [framework X]</h6>
+    <p>There are a lot of excellent full featured CSS frameworks to pick from; however, if you already posess a fully featured style guide, it quickly becomes extremely tedious to roll back the default styles from larger frameworks.</p>
+    <p>Many large CSS frameworks also come with JavaScript Dependencies, which adds to the overall weight of your design implementation.</p>
+    <p>Stylie generated style guides are always namesspaced (by default with [ts]), such that styles may be contained within specific elements and will not conflict with other CSS style definitions</p>
+    <p>This style guide generating alternative is designed to provide a workstream for generating a comprehensive and bespoke framework suited for your exact specifications.</p>
+    <h6>Methodology</h6>
+    <p>Most classes have six different size class modifiers</p>
+    <ul class="ts-text-sm">
+      <li>xs - extra small</li>
+      <li>sm - small</li>
+      <li>md - medium</li>
+      <li>lg - large</li>
+      <li>xl - extra large</li>
+      <li>xx - extra huge</li>
+    </ul>
+    <p>The default size and percent values can be modified by manipulating
+      <span class="ts-code">variables.less</span>
+    </p>
+    <p>The CSS class names follow the <i>[namespace]-[property]-[value]</i> naming convention. For example:</p>
+    <ul class="ts-text-sm">
+      <li>.ts-text-xl -
+        <span class="ts-text-xl">extra large text</span>
+      </li>
+      <li>.ts-text-accent-color -
+        <span class="ts-text-accent-color"> accent colored text</span>
+      </li>
+      <li class="ts-position-relative ts-clear-both">.ts-float-right -
+        <div class="ts-float-right ts-border-solid-micro">floated right element</div>
+      </li>
+    </ul>
+    <p>The verbose naming convention is intended to make generating composite LESS classes and prototyping HTML element css classes extremely efficient.</p>
+    <p>By default, the generated style guides are as light weight as possible (no external dependencies, no JavaScript dependencies).</p>
+    <p>The verbose naming convention is intended to make generating composite LESS classes and prototyping HTML element css classes extremely efficient.</p>
+  </section>
+</article>
+<hr>

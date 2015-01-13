@@ -1,0 +1,53 @@
+<a name="#responsive"></a>
+<article class="ts-text-container ts-container-margin-xl">
+  <section>
+    <h2>Responsive
+      <small>media queries</small>
+    </h2>
+    <p>The <i>screen[xs:xx]</i> naming convention is used to control the responsive elements by media query.</p>
+    <p>The default size and percent values can be modified by manipulating
+      <span class="ts-code">variables.less</span>
+    </p>
+    <h6>Visibility</h6>
+    <p>It's possible to hide elements based on the size of the screen</p>
+    <ul class="ts-text-sm">
+      <li>.ts-screenxs-hidden - hide element when screen is extra small sized</li>
+      <li>.ts-screensm-hidden - hide element when screen is small sized</li>
+      <li>.ts-screenmd-hidden - hide element when screen is medium sized</li>
+      <li>.ts-screenlg-hidden - hide element when screen is large sized</li>
+      <li>.ts-screenxl-hidden - hide element when screen is extra large sized</li>
+      <li>.ts-screenxx-hidden - hide element when screen is extra huge sized</li>
+    </ul>
+    <h6>Grid</h6>
+    <p>You can set the size of a column based on the screen size using the screen[xs:xx] naming convention</p>
+    <ul class="ts-text-sm">
+      <li>.ts-screenxs-col-span3 - span 3 columns when screen is extra small sized</li>
+      <li>.ts-screensm-col-span5 - span 5 columns when screen is small sized</li>
+      <li>.ts-screenmd-col-span2 - span 2 columns when screen is medium sized</li>
+      <li>.ts-screenlg-col-span1 - span 1 column when screen is large sized</li>
+      <li>.ts-screenxl-col-span12 - span 12 columns when screen is extra large sized</li>
+      <li>.ts-screenxx-col-span8 - span 8 columns when screen is extra huge sized</li>
+    </ul>
+    <h6>Headings</h6>
+    <p>Heading sizes are calculated as ratios based on the size of the screen and the default <i>@heading-size</i>.</p>
+    <ul class="ts-text-xs">
+      <li>h1 = 8/8 * h1</li>
+      <li>h2 = 7/8 * h1</li>
+      <li>h3 = 6/8 * h1</li>
+      <li>h4 = 5/8 * h1</li>
+      <li>h5 = 4/8 * h1</li>
+      <li>h6 = 4/8 * h1</li>
+    </ul>
+    <p>Examples:</p>
+    <ul class="ts-text-sm">
+      <li>h1 on extra screen - font-size: (@heading-size * @headingxs);</li>
+      <li>h2 on medium screen - font-size: (@heading-size*(7/8) * @headingmd);</li>
+      <li>h3 on extra large screen - font-size: (@heading-size*(6/8) * @headingxl);</li>
+      <li>h4 on small screen - font-size: (@heading-size*(5/8) * @headingsm);</li>
+    </ul>
+    <h6>Nav Elements</h6>
+    <p>The nav links will collapse when the screen is smaller than <i>@navcollapse</i>
+    </p>
+  </section>
+</article>
+<hr>
