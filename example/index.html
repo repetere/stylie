@@ -51,7 +51,7 @@
 <article class="ts-text-container  ts-height-100">
   <section class="ts-vertical-center ts-width-66 ts-height-max-80 ts-no-x-overflow">
     <h1 class="ts-text-center">Stylie</h1>
-    <summary class="ts-text-center">Stylie is a barebones css framework generator for professionally designed style guides.</summary>
+    <summary class="ts-text-center">Stylie is a barebones CSS framework generator for professionally designed style guides.</summary>
   </section>
 </article>
 <hr>
@@ -59,17 +59,17 @@
 <article class="ts-text-container ts-container-margin-xl">
   <section>
     <h2>Getting started
-      <small>using stylie</small>
+      <small>with stylie</small>
     </h2>
-    <p>Stylie is designed to generate responsive style guides from professionally designed compositions.</p>
-    <p>The generated style guides by default are based off of <i>em</i> CSS units, and 12 column, percentage based grids.</p>
-    <h6>Why use Stylie instead of [framework X]</h6>
-    <p>There are a lot of excellent full featured CSS frameworks to pick from; however, if you already posess a fully featured style guide, it quickly becomes extremely tedious to roll back the default styles from larger frameworks.</p>
-    <p>Many large CSS frameworks also come with JavaScript Dependencies, which adds to the overall weight of your design implementation.</p>
-    <p>Stylie generated style guides are always namesspaced (by default with [ts]), such that styles may be contained within specific elements and will not conflict with other CSS style definitions</p>
-    <p>This style guide generating alternative is designed to provide a workstream for generating a comprehensive and bespoke framework suited for your exact specifications.</p>
+    <p>Stylie is designed to generate responsive CSS frameworks from professionally designed style guides.</p>
+    <p>The generated framework uses <a href="http://www.w3schools.com/cssref/css_units.asp" target="_blank">CSS <i>EM</i> units</a> and 12 column, percentage width based grids.</p>
+    <h6>Other CSS frameworks</h6>
+    <p>There are a lot of excellent comprehensive CSS frameworks to choose from; however, if you already possess a fully featured style guide, it can become rather tedious to roll back the default styles from larger frameworks.</p>
+    <p>Many large CSS frameworks also come with JavaScript dependencies, which add additional (but in many cases, unnecessary) functionality. The additional JavaScript dependencies can add additional unwanted weight to your application.</p>
+    <p>Stylie generated style guides are always name-spaced (by default with [ts]), such that styles may be contained within specific elements and will not conflict with other CSS style definitions.</p>
+    <p>Stylie generated style guides are designed to provide a workstream for generating a comprehensive and bespoke framework suited for your exact specifications.</p>
     <h6>Methodology</h6>
-    <p>Most classes have six different size class modifiers</p>
+    <p>Most CSS class definitions have six different size class modifiers</p>
     <ul class="ts-text-sm">
       <li>xs - extra small</li>
       <li>sm - small</li>
@@ -78,9 +78,8 @@
       <li>xl - extra large</li>
       <li>xx - extra huge</li>
     </ul>
-    <p>The default size and percent values can be modified by manipulating
-      <span class="ts-code">variables.less</span>
-    </p>
+    <p>Manipulating
+      <span class="ts-code">variables.less</span> can modify the default size and percent values</p>
     <p>The CSS class names follow the <i>[namespace]-[property]-[value]</i> naming convention. For example:</p>
     <ul class="ts-text-sm">
       <li>.ts-text-xl -
@@ -93,9 +92,7 @@
         <div class="ts-float-right ts-border-solid-micro">floated right element</div>
       </li>
     </ul>
-    <p>The verbose naming convention is intended to make generating composite LESS classes and prototyping HTML element css classes extremely efficient.</p>
-    <p>By default, the generated style guides are as light weight as possible (no external dependencies, no JavaScript dependencies).</p>
-    <p>The verbose naming convention is intended to make generating composite LESS classes and prototyping HTML element css classes extremely efficient.</p>
+    <p>The verbose naming convention is intended to make generating composite LESS classes and prototyping HTML element CSS classes extremely efficient.</p>
   </section>
 </article>
 <hr>
@@ -105,7 +102,7 @@
     <h2>Colors
       <small>Standard Palette</small>
     </h2>
-    <p>There are eight basic colors, they can be customized by modifying
+    <p>There are eight basic colors; they can be customized by modifying
       <span class="ts-code">variables.less</span>
     </p>
     <p>
@@ -130,6 +127,7 @@
   </section>
   <section>
     <h3>Borders</h3>
+    <p>The border class names follow the [namespace]-border-[color name] naming convention.</p>
     <p>
       <span class="ts-border-dark-primary-color example-color-border">.ts-border-dark-primary-color</span>
 
@@ -148,6 +146,7 @@
 
     </p>
     <h3>Backgrounds</h3>
+    <p>The background class names follow the [namespace]-background-[color name] naming convention.</p>
     <p>
       <span class="ts-bg-dark-primary-color example-color-bg">.ts-bg-dark-primary-color</span>
 
@@ -166,6 +165,7 @@
 
     </p>
     <h3>Text</h3>
+    <p>The text class names follow the [namespace]-text-[color name] naming convention.</p>
     <p>
       <span class="ts-text-dark-primary-color example-color-bg">.ts-text-dark-primary-color</span>
 
@@ -201,6 +201,7 @@
   </section>
   <section>
     <h3>Text Size</h3>
+    <p>The text size class names follow the [namespace]-text-[size] naming convention.</p>
     <p>
       <span class="ts-text-xs example-color-bg">.ts-text-xs</span>
       <span class="ts-text-sm example-color-bg">.ts-text-sm</span>
@@ -211,6 +212,7 @@
     </p>
   </section>
   <section>
+    <p>Example heading sizes:</p>
     <h1>H1 Heading.</h1>
     <h2>H2 Heading.</h2>
     <h3>H3 Heading.</h3>
@@ -222,9 +224,9 @@
     <h3>Body
       <small>and fonts</small>
     </h3>
-    <h4>Body Copy &lt;p&gt;</h4>
+    <h4>Body Copy (sans-serif) &lt;p&gt;</h4>
     <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-    <h4>Summary Text &lt;summary&gt;</h4>
+    <h4>Summary & Details Text (serif) &lt;summary&gt;, &lt;details&gt;</h4>
     <summary>Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</summary>
     <h4>Font Classes</h4>
     <h6>.ts-serif</h6>
@@ -247,30 +249,30 @@
   <section>
     <h3>Alignment Classes </h3>
     <h6>.ts-text-left</h6>
-    <p class="ts-text-left">Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+    <p class="ts-text-left ts-text-sm">Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec.</p>
     <h6>.ts-text-right</h6>
-    <p class="ts-text-right">Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+    <p class="ts-text-right ts-text-sm">Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec.</p>
     <h6>.ts-text-center</h6>
-    <p class="ts-text-center">Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+    <p class="ts-text-center ts-text-sm">Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec.</p>
     <h6>.ts-text-justify</h6>
-    <p class="ts-text-justify">Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+    <p class="ts-text-justify ts-text-sm">Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec.</p>
   </section>
   <section>
     <h3>Lists Classes </h3>
     <h6>Ordered List &lt;ol&gt;</h6>
-    <ol>
+    <ol class="ts-text-sm">
       <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
       <li>Donec id elit non mi porta gravida at eget metus.</li>
       <li>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</li>
     </ol>
     <h6>Unordered List &lt;ul&gt;</h6>
-    <ul>
+    <ul class="ts-text-sm">
       <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
       <li>Donec id elit non mi porta gravida at eget metus.</li>
       <li>Duis mullis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</li>
     </ul>
     <h6>Horizontal Unordered List &lt;ul.ts-ul-inline-block&gt; </h6>
-    <ul class="ts-ul-inline-block ts-li-horz-spacing ts-no-padding">
+    <ul class="ts-text-sm ts-ul-inline-block ts-li-horz-spacing ts-no-padding">
       <li class="ts-border-solid-micro">Maecenas</li>
       <li class="ts-border-solid-micro">Sed</li>
       <li class="ts-border-solid-micro">Donec</li>
@@ -421,14 +423,14 @@
   <section>
     <h3>Positioning</h3>
 <h6>Floats</h6>
-<p>HTML elements can use short hand classes to define the css float property</p>
+<p>HTML elements can use short hand classes to define the CSS float property</p>
 <div class="example-border ts-container-margin-lg ts-row">
   <span class="ts-bg-light-primary-color example-color-bg ts-pull-left ts-border-solid-micro">.ts-pull-left / .ts-float-left</span>
 </div>
 <div class="example-border ts-container-margin-lg ts-row">
   <span class="ts-bg-light-primary-color example-color-bg ts-pull-right ts-border-solid-micro">.ts-pull-right / .ts-float-right</span>
 </div>
-<p>HTML elements can also use short hand classes to define the css clear property</p>
+<p>HTML elements can also use short hand classes to define the CSS clear property</p>
 <ul class="ts-text-sm">
   <li>.ts-clear-left - clear left</li>
   <li>.ts-clear-right - clear right</li>
@@ -444,7 +446,7 @@
     &nbsp;
   </p>
 </div>
-<p>HTML elements can use short hand classes to define the four preset css z-index properties</p>
+<p>HTML elements can use short hand classes to define the four preset CSS z-index properties</p>
 <ul class="ts-text-sm">
   <li>.ts-z-index-1 - z-index:1</li>
   <li>.ts-z-index-10 - z-index:10</li>
@@ -477,7 +479,7 @@
       <h3>Box sizing</h3>
 <p>HTML elements grid level elements are border-box sized</p>
 <h6>Margins</h6>
-<p>HTML elements can also use short hand classes to define the the size of the css margin property</p>
+<p>HTML elements can also use short hand classes to define the the size of the CSS margin property</p>
 <div class="ts-row ts-border-solid-micro ts-container-margin-lg">
   <div class=" ts-border-solid-micro ts-no-margin">
     .ts-no-margin
