@@ -305,7 +305,7 @@
   <div class="ts-col-span1">.ts-col-span1</div>
   <div class="ts-col-span1">.ts-col-span1</div>
   <div class="ts-col-span1">.ts-col-span1</div>
-  <div class="ts-col-span1 ts-screensm-col-span12">.ts-col-span1</div>
+  <div class="ts-col-span1">.ts-col-span1</div>
   <div class="ts-col-span1">.ts-col-span1</div>
   <div class="ts-col-span1">.ts-col-span1</div>
   <div class="ts-col-span1">.ts-col-span1</div>
@@ -363,12 +363,63 @@
 <div class="ts-row ts-text-xs example-grid-border ts-container-margin-lg">
   <div class="ts-col-span12">.ts-col-span12</div>
 </div>
-</section>
-      <section>
-        nested grids
-      </section>
-      <section>
-        <h3>Positioning</h3>
+  </section>
+  <section>
+    <h6>Nested Grid
+  <small>.ts-row</small>
+</h6>
+<div class="ts-row ts-text-xs example-grid-border ts-container-margin-lg ts-no-y-overflow">
+  <div class="ts-col-span12">
+    <strong>Example: Nested Rows and Columns</strong>
+  </div>
+  <div class="ts-col-span6 ts-height-33">
+    <div class="ts-row">
+      <div class="ts-col-span12 ts-border-solid-micro">
+        .ts-col-span12
+      </div>
+    </div>
+    <div class="ts-row">
+      <div class="ts-col-span8 ts-border-solid-micro ts-height-100">.ts-col-span8</div>
+      <div class="ts-col-span4 ts-border-solid-micro ts-height-100">.ts-col-span4</div>
+    </div>
+  </div>
+  <div class="ts-col-span6 ts-height-33">.ts-col-span6</div>
+</div>
+  </section>
+  <section>
+    <h6>Responsive Grid
+  <small>.ts-row</small>
+</h6>
+<div class="ts-row ts-text-xs example-grid-border ts-container-margin-lg ts-no-y-overflow">
+  <div class="ts-col-span12">
+    <strong>Example: Responsive grids</strong>
+  </div>
+  <div class="ts-col-span6 ts-screenmd-col-span8  ts-screensm-col-span12 ">
+    .ts-col-span6 .ts-screenmd-col-span8 .ts-screensm-col-span12
+  </div>
+  <div class="ts-col-span6 ts-screenmd-col-span4 ts-screensm-col-span12">
+    .ts-col-span6 .ts-screenmd-col-span4 .ts-screensm-col-span12
+  </div>
+
+  <div class="ts-col-span3 ts-screenmd-col-span4 ts-screenxs-col-span6">
+    .ts-col-span3 .ts-screenmd-col-span4 .ts-screenxs-col-span6
+  </div>
+
+  <div class="ts-col-span3 ts-screenmd-col-span4 ts-screenxs-col-span6">
+    .ts-col-span3 .ts-screenmd-col-span4 .ts-screenxs-col-span6
+  </div>
+
+  <div class="ts-col-span3 ts-screenmd-col-span4 ts-screenxs-col-span6">
+    .ts-col-span3 .ts-screenmd-col-span4 .ts-screenxs-col-span6
+  </div>
+
+  <div class="ts-col-span3 ts-screenmd-col-span4 ts-screenxs-col-span6">
+    .ts-col-span3 .ts-screenmd-col-span4 .ts-screenxs-col-span6
+  </div>
+</div>
+  </section>
+  <section>
+    <h3>Positioning</h3>
 <h6>Floats</h6>
 <p>HTML elements can use short hand classes to define the css float property</p>
 <div class="example-border ts-container-margin-lg ts-row">
@@ -423,7 +474,7 @@
   </div>
 
 </div>
-          <h3>Box sizing</h3>
+      <h3>Box sizing</h3>
 <p>HTML elements grid level elements are border-box sized</p>
 <h6>Margins</h6>
 <p>HTML elements can also use short hand classes to define the the size of the css margin property</p>
@@ -499,7 +550,7 @@
     .ts-padding-xx
   </div>
 </div>
-            <h3>Height & Width</h3>
+        <h3>Height & Width</h3>
 <h6>Height</h6>
 <div class="ts-row ts-border-solid-micro ts-container-margin-lg ts-text-center ts-text-sm ts-height-33">
   <div class="ts-col-span3 ts-border-solid-micro ts-height-10">
@@ -556,7 +607,7 @@
     .ts-width-100
   </div>
 </div>
-              <h3>Containers</h3>
+          <h3>Containers</h3>
 <h6>Height containers</h6>
 <div class="ts-row ts-border-solid-micro ts-container-margin-lg ts-text-center ts-text-sm ts-bg-primary-text-color">
   <div class="ts-bg-text-primary-color ts-container-margin-xx">
@@ -598,17 +649,11 @@
   </div>
 </div>
 <h6>Content containers</h6>
+<p>The content based containers are used to define margins for content layouts</p>
 <div class="ts-row ts-border-solid-micro ts-container-margin-lg ts-text-center ts-text-sm ts-bg-primary-text-color">
   <div class="ts-bg-text-primary-color ts-container-margin-md ts-container ts-no-x-overflow  ts-height-10">
     .ts-no-x-overflow
-    <hr>
-    <ul class="ts-text-left">
-      <li>you can also use</li>
-      <li>
-        <strong>.ts-no-y-overflow:</strong> for preventing y-overflow</li>
-      <li>
-        <strong>.ts-no-overflow:</strong> for preventing all overflows</li>
-    </ul>
+
   </div>
   <hr class="ts-no-margin">
   <div class="ts-bg-text-primary-color ts-container-margin-md ts-text-container ts-md-spacing-padding">
@@ -619,60 +664,16 @@
     .ts-xl-spacing-margin
   </div>
 </div>
-      </section>
-</article>
-<hr>
-                <!--
-                <a name="#element"></a>
-<article class="ts-text-container ts-container-margin-xl">
-  <section>
-    <h3>Inline Elements </h3>
-    <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-
-    <blockquote>
-      <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-    </blockquote>
-  </section>
-  <section class="ts-text-container">
-    <h4>h4. Bootstrap heading
-      <small>Secondary text</small>
-    </h4>
-    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
-    <ol>
-      <li>
-        <p>The four most im­por­tant ty­po­graphic choices you make in any doc­u­ment are <a href="point-size.html" class="xref">point size</a>, <a href="line-spacing.html" class="xref">line spac­ing</a>, <a href="line-length.html" class="xref">line length</a>, and font (pas­sim), be­cause those choices de­ter­mine how the <a href="body-text.html" class="xref">body text</a>
-          <span pollen="no-hyphens">looks.</span>
-        </p>
-      </li>
-      <li>
-        <p><a href="point-size.html" class="xref">Point size</a> should be 10–12 points in printed doc­u­ments, 15-25 pix­els on the&nbsp;
-          <span pollen="no-hyphens">web.</span>
-        </p>
-      </li>
-      <li>
-        <p><a href="line-spacing.html" class="xref">Line spac­ing</a> should be 120–145% of the point&nbsp;
-          <span pollen="no-hyphens">size.</span>
-        </p>
-      </li>
-      <li>
-        <p>The av­er­age <a href="line-length.html" class="xref">line length</a> should be 45–90 char­ac­ters (in­clud­ing
-          <span pollen="no-hyphens">spaces).</span>
-        </p>
-      </li>
-      <li>
-        <p>The eas­i­est and most vis­i­ble im­prove­ment you can make to your ty­pog­ra­phy is to use a pro­fes­sional font, like those found in <a href="font-recommendations.html" class="xref">font rec­om­men­da­tions</a>.</p>
-      </li>
-      <li>
-        <p>Avoid <a href="goofy-fonts.html" class="xref">goofy fonts</a>, <a href="monospaced-fonts.html" class="xref">mono­spaced fonts</a>, and <a href="system-fonts.html" class="xref">sys­tem fonts</a>, es­pe­cially <a href="times-new-roman.html" class="xref">Times New Ro­man</a> and
-          <span pollen="no-hyphens">Arial.</span>
-        </p>
-      </li>
-    </ol>
-    <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+<p>There are two additional overflow constraints</p>
+<ul class="ts-text-left ts-text-sm">
+  <li>
+    <strong>.ts-no-y-overflow:</strong> for preventing y-overflow</li>
+  <li>
+    <strong>.ts-no-overflow:</strong> for preventing all overflows</li>
+</ul>
   </section>
 </article>
 <hr>
-                -->
                 <a name="#responsive"></a>
 <article class="ts-text-container ts-container-margin-xl">
   <section>
@@ -727,7 +728,7 @@
 </article>
 <hr>
                   <a name="#customize"></a>
-<article class="ts-text-container ts-container-margin-xl">
+<article class="ts-text-container ts-container-margin-xl ts-no-x-overflow">
   <section>
     <h2>Customize
       <small>default values</small>
@@ -737,7 +738,7 @@
     </p>
     <div class="ts-row ts-text-xs">
 
-      <div class="ts-col-span4">
+      <div class="ts-col-span4  ts-screenmd-col-span12">
         <h6>EM Size</h6>
         <ul>
           <li>@sizexs: <i>.1em;</i>
@@ -754,7 +755,7 @@
           </li>
         </ul>
       </div>
-      <div class="ts-col-span4">
+      <div class="ts-col-span4  ts-screenmd-col-span12">
         <h6>Percent Size</h6>
         <ul>
           <li>@percentxs: <i>70%;</i>
@@ -772,7 +773,7 @@
         </ul>
       </div>
 
-      <div class="ts-col-span4">
+      <div class="ts-col-span4  ts-screenmd-col-span12">
         <h6>Colors</h6>
         <ul>
           <li>@darkPrimaryColor: <i>#455A64;</i>
@@ -793,7 +794,7 @@
           </li>
         </ul>
       </div>
-      <div class="ts-col-span4">
+      <div class="ts-col-span4  ts-screenmd-col-span12">
         <h6>Typography</h6>
         <ul>
           <li>@heading-size: <i>3em;</i>
@@ -802,25 +803,25 @@
           </li>
         </ul>
       </div>
-      <div class="ts-col-span4">
+      <div class="ts-col-span4  ts-screenmd-col-span12">
         <h6>Media Query Screen</h6>
         <ul>
           <li>@screenxs: <i>20em;</i>
           </li>
           <li>@screensm: <i>29em;</i>
           </li>
-          <li>@screenmd: <i>29em;</i>
+          <li>@screenmd: <i>32em;</i>
           </li>
           <li>@screenlg: <i>50em;</i>
           </li>
-          <li>@screenxl: <i>50em;</i>
+          <li>@screenxl: <i>70em;</i>
           </li>
-          <li>@screenxx: <i>50em;</i>
+          <li>@screenxx: <i>90em;</i>
           </li>
         </ul>
 
       </div>
-      <div class="ts-col-span4">
+      <div class="ts-col-span4  ts-screenmd-col-span12">
         <h6>Media Query Heading</h6>
         <ul>
           <li>@headingxs: <i>.4em;</i>
@@ -846,7 +847,11 @@
   </section>
 </article>
 <hr>
-                    <footer class="ts-row ts-serif-clean">
+                    <aside class="ts-position-fixed ts-position-right ts-bg-text-primary-color ts-position-bottom ts-margin-xl ts-text-xs">
+  <span id="screensize"></span>
+  <span id="screensizeval" class="ts-text-accent-color"></span>
+</aside>
+<footer class="ts-row ts-serif-clean">
   <div class="ts-col-span6 ts-text-sm">
     Curated with <a href="http://getperiodic.org" target="_blank">Periodic</a>
   </div>
