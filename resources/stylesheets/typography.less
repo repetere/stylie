@@ -2,15 +2,12 @@
 .ts-text-right{
     text-align: right;
 }
-
 .ts-text-left{
     text-align: left;
 }
-
 .ts-text-center{
     text-align: center;
 }
-
 .ts-text-justify{
     text-align: justify;
 }
@@ -18,25 +15,39 @@
 .ts-text-xs{
     font-size:@percentxs;
 }
-
 .ts-text-sm{
     font-size:@percentsm;
 }
-
 .ts-text-md{
     font-size:@percentmd;
 }
-
 .ts-text-lg{
     font-size:@percentlg;
 }
-
 .ts-text-xl{
     font-size:@percentxl;
 }
-
 .ts-text-xx{
     font-size:@percentxx;
+}
+
+.ts-line-height-xs{
+    line-height:  @percentxs * (@line-height);
+}
+.ts-line-height-sm{
+    line-height:  @percentsm * (@line-height);
+}
+.ts-line-height-md{
+    line-height:  @percentmd * (@line-height);
+}
+.ts-line-height-lg{
+    line-height:  @percentlg * (@line-height);
+}
+.ts-line-height-xl{
+    line-height:  @percentxl * (@line-height);
+}
+.ts-line-height-xx{
+    line-height:  @percentxx * (@line-height);
 }
 
 .ts-text-bold{
@@ -113,5 +124,10 @@ blockquote{
     border-bottom: 1px solid lighten(@textcolor, 85%);
     p{
         margin:1em 0;
+    }
+}
+.ts-no-heading-margin{
+    h1,h2,h3,h4,h5,h6{
+        margin-top:0;
     }
 }
