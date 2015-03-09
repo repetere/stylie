@@ -1,0 +1,52 @@
+@import "fonts.less";
+.ts-form-optional{
+    display: none;
+    &.ts-show-optional{
+        display: initial;
+    }
+}
+.ts-formelement{
+}
+.ts-formelement-border{
+    border:@sizexs solid @darkPrimaryColor;
+}
+.ts-formelement-border-light{
+    border:1px solid lighten(@darkPrimaryColor, 10%);
+}
+.ts-button{
+    // .ts-bg-light-primary-color;
+    // .ts-border-divider-text-color;
+    .ts-text-dark-primary-color;
+    background-color: @textPrimaryColor;
+    .ts-border-accent-color;
+    color:@accentColor;
+    .ts-formelement-border;
+    border-color: @accentColor;
+    padding:0 @sizemd;
+    cursor:pointer;
+    &:hover{
+        background-color: darken(@textPrimaryColor, 10%);
+    }
+}
+.ts-form{
+    .ts-form-padding{
+        // padding-left:@sizemd;
+        // padding-right:@sizemd;
+        // margin: @sizesm;
+    }
+    .ts-form-row{
+        .ts-row;
+        padding-top:@sizemd;
+        padding-bottom:@sizemd;
+        .ts-label{
+            font-size: @percentxs;
+        }
+        .ts-input{
+            width:100%;
+            .ts-formelement-border-light;
+            &[disabled="disabled"]{
+                background-color: darken(@textPrimaryColor, 5%);
+            }
+        }
+    }
+}

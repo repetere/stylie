@@ -116,7 +116,7 @@ module.exports = function (grunt) {
 				files: [{
 					expand: true,
 					cwd: 'resources/template',
-					src: ['!section/*.ejs', 'index.ejs', '!shared/**/*.ejs'],
+					src: ['index.ejs', '!shared/**/*.ejs'],
 					dest: 'example',
 					ext: '.html'
 				}],
@@ -158,5 +158,5 @@ module.exports = function (grunt) {
 	grunt.registerTask('packagejs', ['browserify', 'uglify']);
 	grunt.registerTask('doc', 'jsdoc');
 	grunt.registerTask('test', 'simplemocha');
-	grunt.registerTask('html', 'newer:template');
+	grunt.registerTask('html', 'template');
 };

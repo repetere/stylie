@@ -7,7 +7,12 @@ var navlinks,
 	screenxl = '70em',
 	screenxx = '90em',
 	screenSizeElement,
-	screenSizeValElement;
+	screenSizeValElement,
+	PushMenu = require('stylie.pushmenu'),
+	StyliePushMenu,
+	closeMenuElements,
+	menuElement,
+	menuTriggerElement;
 
 var getMatchMediaString = function (minwidth) {
 	return '(min-width: ' + minwidth + ')';
@@ -19,13 +24,14 @@ var navlinkclickhandler = function (e) {
 		anchorlink,
 		anchorlinkTop;
 
-	if (etargethref.charAt(0) === '#') {
+	StyliePushMenu._resetMenu();
+	if (etargethref && etargethref.charAt(0) === '#') {
 		anchorlink = document.querySelector('a[name="' + etargethref + '"]');
 		if (anchorlink) {
 			anchorlinkTop = anchorlink.getBoundingClientRect().top;
 			console.log('anchorlinkTop', anchorlinkTop);
 			console.log('window.scrollY', window.scrollY);
-			window.scrollTo(0, (anchorlinkTop + window.scrollY));
+			document.querySelector('main.ts-pushmenu-scroller').scrollTop = (anchorlinkTop + window.scrollY);
 		}
 	}
 };
@@ -59,15 +65,32 @@ var matchMediaEventHandler = function () {
 	}
 };
 
+var closeNavMenu = function () {
+	StyliePushMenu._resetMenu();
+};
+
 window.addEventListener('load', function () {
 	navlinks = document.querySelector('#navlinks');
 	screenSizeElement = document.querySelector('#screensize');
 	screenSizeValElement = document.querySelector('#screensizeval');
+	menuElement = document.getElementById('ts-pushmenu-mp-menu');
+	menuTriggerElement = document.getElementById('trigger');
+	closeMenuElements = document.querySelectorAll('.closemenu');
 
+	for (var x = 0; x < closeMenuElements.length; x++) {
+		closeMenuElements[x].addEventListener('click', closeNavMenu, false);
+	}
 	if (navlinks) {
 		navlinks.addEventListener('click', navlinkclickhandler, false);
 	}
+	StyliePushMenu = new PushMenu({
+		el: menuElement,
+		trigger: menuTriggerElement,
+		type: 'overlap', // 'cover',
+		position: 'right'
+	});
 	matchMediaEventHandler();
+	window.StyliePushMenu = StyliePushMenu;
 });
 
 window.addEventListener('resize', matchMediaEventHandler, false);

@@ -17,37 +17,19 @@
   <script src="js/example.min.js"></script>
 </head>
 
-<body class="ts-height-100 ts-no-x-overflow">
-  <header class="ts-position-fixed ts-position-top ts-width-100 ts-z-index-1000 ts-bg-text-primary-color ts-serif-clean">
-  <nav class="ts-container ts-position-top">
-    <menuitem class="ts-pull-right ts-nav-collapse">
-      <div class="ts-nav-collapse-button ts-text-right">
-        [-]
-      </div>
-      <ul id="navlinks" class="ts-nav-collapse-dropdown ts-z-index-1000 ts-bg-text-primary-color ts-position-absolute ts-position-right ts-no-padding ts-list-style-none ts-li-horz-spacing">
-        <li><a href="#color">Colors</a>
-        </li>
-        <li><a href="#typography">Typography</a>
-        </li>
-        <li><a href="#layout">Layout</a>
-        </li>
-        <!-- <li><a href="#element">Elements</a> </li> -->
-        <li><a href="#responsive">Responsive</a>
-        </li>
-        <li><a href="#customize">Customize</a>
-        </li>
-      </ul>
-    </menuitem>
-    <menuitem class="ts-pull-left">
-      <ul class="ts-ul-inline-block ts-no-padding">
-        <li><a href="#top" class="ts-text-xl ts-text-bold">Stylie</a>
-        </li>
-      </ul>
-    </menuitem>
-  </nav>
+<body class="ts-pushmenu-container ts-height-100 ts-no-x-overflow">
+  <div id="ts-pushmenu-mp-pusher" class="ts-pushmenu-mp-pusher ts-height-100 ts-pushmenu-mp-right ">
+    <main class="ts-pushmenu-scroller ts-height-100 ">
+      <div class="ts-pushmenu-scroller-inner ts-height-100 ">
+  <header class="ts-position-fixed ts-position-top ts-width-100 ts-z-index-1000 ts-bg-text-primary-color ts-serif-clean ts-row ts-padding-md">
+  <div id="trigger" class="ts-position-absolute ts-position-right ts-position-top">
+    <a href="#" id="trigger" class="ts-icon-menu-trigger ts-">
+      <img class="ts-nav-image" src="img/menu.png">
+    </a>
+  </div>
+  <div class="ts-text-xl ts-text-center">Stylie</div>
 </header>
-    <main class="ts-container ts-height-100 ">
-      <a name="#top"></a>
+    <a name="#top"></a>
 <article class="ts-text-container  ts-height-100">
   <section class="ts-vertical-center ts-width-66 ts-height-max-80 ts-no-x-overflow">
     <h1 class="ts-text-center">Stylie</h1>
@@ -55,7 +37,7 @@
   </section>
 </article>
 <hr>
-        <a name="#gettingstarted"></a>
+      <a name="#gettingstarted"></a>
 <article class="ts-text-container ts-container-margin-xl">
   <section>
     <h2>Getting started
@@ -96,7 +78,7 @@
   </section>
 </article>
 <hr>
-          <a name="#color"></a>
+        <a name="#color"></a>
 <article class="ts-text-container ts-container-margin-xl">
   <section class="ts-text-container">
     <h2>Colors
@@ -191,7 +173,7 @@
   </section>
 </article>
 <hr>
-            <a name="#typography"></a>
+          <a name="#typography"></a>
 <article class="ts-text-container ts-container-margin-xl">
   <section>
     <h2>Typography
@@ -300,7 +282,7 @@
   </section>
 </article>
 <hr>
-              <a name="#layout"></a>
+            <a name="#layout"></a>
 <article class="ts-text-container ts-container-margin-xl">
   <section>
     <h2>Layout
@@ -695,7 +677,7 @@
   </section>
 </article>
 <hr>
-                <a name="#responsive"></a>
+              <a name="#responsive"></a>
 <article class="ts-text-container ts-container-margin-xl">
   <section>
     <h2>Responsive
@@ -757,7 +739,7 @@
   </section>
 </article>
 <hr>
-                  <a name="#customize"></a>
+                <a name="#customize"></a>
 <article class="ts-text-container ts-container-margin-xl ts-no-x-overflow">
   <section>
     <h2>Customize
@@ -877,7 +859,7 @@
   </section>
 </article>
 <hr>
-                    <aside class="ts-position-fixed ts-position-right ts-bg-text-primary-color ts-position-bottom ts-margin-xl ts-text-xs">
+                  <aside class="ts-position-fixed ts-position-right ts-bg-text-primary-color ts-position-bottom ts-margin-xl ts-text-xs">
   <span id="screensize"></span>
   <span id="screensizeval" class="ts-text-accent-color"></span>
 </aside>
@@ -891,8 +873,66 @@
       2015
   </div>
 </footer>
+</div>
 </main>
-<!-- /minimal-container -->
+<nav id="ts-pushmenu-mp-menu" class="ts-pushmenu-mp-menu ts-pushmenu-mp-right">
+  <div id="navlinks" class="ts-pushmenu-mp-level">
+  <h2 class="icon icon-world"><a href="#top" class="closemenu">Home</a></h2>
+  <ul>
+    <li class="icon icon-arrow-left">
+      <a class="icon icon-display" href="#color">Colors</a>
+      <div class="ts-pushmenu-mp-level">
+        <h3 class="icon icon-display">Colors</h3>
+        <a class="ts-pushmenu-mp-back" href="#color">back</a>
+        <ul>
+          <li class="icon icon-arrow-left">
+            <a class="icon icon-phone" href="#color">Borders</a>
+          </li>
+          <li class="icon icon-arrow-left">
+            <a class="icon icon-tv" href="#color">Backgrouds</a>
+          </li>
+          <li class="icon icon-arrow-left">
+            <a class="icon icon-camera" href="#color">Text</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="icon icon-arrow-left">
+      <a class="icon icon-news" href="#typography">Typography</a>
+      <div class="ts-pushmenu-mp-level">
+        <h3 class="icon icon-news">Typography</h3>
+        <a class="ts-pushmenu-mp-back" href="#">back</a>
+        <ul>
+          <li><a href="#typography">Headings</a>
+          </li>
+          <li><a href="#typography">Paragraph</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="icon icon-arrow-left">
+      <a class="icon icon-shop" href="#layout">Layout</a>
+      <div class="ts-pushmenu-mp-level">
+        <h3 class="icon icon-shop">Layout</h3>
+        <a class="ts-pushmenu-mp-back" href="#layout">back</a>
+        <ul>
+          <li class="icon icon-arrow-left">
+            <a class="icon icon-t-shirt" href="#layout">Grid</a>
+          </li>
+          <li>
+            <a class="icon icon-diamond" href="#layout">Position</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li><a class="icon icon-photo" href="#responsive">Responsive</a>
+    </li>
+    <li><a class="icon icon-wallet" href="#customize">Customize</a>
+    </li>
+  </ul>
+</div>
+</nav>
+</div>
 <script>
 (function(i, s, o, g, r, a, m) {
   i['GoogleAnalyticsObject'] = r;
