@@ -1504,6 +1504,7 @@ var getMatchMediaString = function (minwidth) {
 };
 
 var navlinkclickhandler = function (e) {
+	// console.log('e', e);
 	var etarget = e.target,
 		etargethref = etarget.getAttribute('data-href'),
 		anchorlink,
@@ -1513,12 +1514,12 @@ var navlinkclickhandler = function (e) {
 		anchorlink = document.querySelector('a[name="' + etargethref + '"]');
 		if (anchorlink) {
 			anchorlinkTop = anchorlink.getBoundingClientRect().top;
-			console.log('anchorlinkTop', anchorlinkTop);
-			console.log('document.querySelector("main.ts-pushmenu-scroller").scrollTop', document.querySelector('main.ts-pushmenu-scroller').scrollTop);
-			console.log('mtpms.scrollY', mtpms.scrollTop);
+			// console.log('anchorlinkTop', anchorlinkTop);
+			// console.log('document.querySelector("main.ts-pushmenu-scroller").scrollTop', document.querySelector('main.ts-pushmenu-scroller').scrollTop);
+			// console.log('mtpms.scrollY', mtpms.scrollTop);
 			mtpms.scrollTop = (anchorlinkTop + mtpms.scrollTop);
+			StyliePushMenu._resetMenu();
 		}
-		StyliePushMenu._resetMenu();
 	}
 
 };
@@ -1568,7 +1569,7 @@ var scrollNavPos = function () {
 
 
 window.addEventListener('load', function () {
-	navlinks = document.querySelector('nav.navlinks-section');
+	navlinks = document.querySelector('#ts-pushmenu-mp-menu');
 	screenSizeElement = document.querySelector('#screensize');
 	screenSizeValElement = document.querySelector('#screensizeval');
 	menuElement = document.getElementById('ts-pushmenu-mp-menu');

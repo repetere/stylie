@@ -1,25 +1,50 @@
-<% var navigation={
-      heading:{ 
+<% var heading = { 
+        labelheading:true,
         label: 'Home', 
         link: 'top',
         linkclass:'navlinks-section',
         links:[{
-          heading:{
+            labelheading:true,
+            backlink:true,
+            label: 'Colors', 
+            link: 'colors',
+            linkclass:'icon icon-tv',
+            links:[{
+              label:'Borders',
+              link:'borders',
+              linkclass:'icon icon-tv'
+            },{
+              label:'Backgrounds',
+              link:'backgrounds',
+              linkclass:'icon icon-tv'
+            }]
+          },{
+            labelheading:true,
+            backlink:true,
             label: 'Typography', 
             link: 'typography',
             linkclass:'icon icon-tv',
             links:[{
               label:'Headings',
               link:'headings',
-              linkclass:'icon icon-tv'
+              linkclass:'icon icon-tv',
+              links:[{
+                label:'Headings',
+                link:'headings',
+                linkclass:'icon icon-tv'
+              },{
+                label:'Paragraph',
+                link:'paragraph',
+                linkclass:'icon icon-tv'
+              }]
             },{
               label:'Paragraph',
               link:'paragraph',
               linkclass:'icon icon-tv'
             }]
-          }
-        },{
-          heading:{
+          },{
+            labelheading:true,
+            backlink:true,
             label: 'Layout', 
             link: 'layout',
             linkclass:'icon icon-tv',
@@ -32,25 +57,38 @@
               link:'container',
               linkclass:'icon icon-tv'
             }]
-          },
-          
-        }] 
-      } 
-    };
+          },{
+            labelheading:false,
+            backlink:false,
+            label: 'Customize', 
+            link: 'customize',
+            linkclass:'icon icon-tv'
+          }] 
+      } ;
 
-  var getNavHtml = function(nav){%>
+  var subGetNavHtml = function (navlink){%>
+
+  <%};
+
+  var getNavHtml = function(nav){
+    console.log('nav',nav);%>
 <div class="ts-pushmenu-mp-level">
-  <%if(typeof nav !=='undefined' && typeof nav.heading !=='undefined' && typeof nav.heading.link !=='undefined'){%>
-    <h4 class="" data-href="#<%- nav.heading.link %>"><%- nav.heading.label %></h4>
+  <%if(nav.labelheading == true){%>
+    <h4 class="" data-href="#<%- nav.link %>" ><%- nav.label %></h4>
   <%}%>
-  <% if(typeof nav !=='undefined' && typeof nav.heading !=='undefined' && nav.heading.links && nav.heading.links.length>0){%>
+  <% if(typeof nav !=='undefined' && nav.links && nav.links.length>0){%>
+  <%if(nav.backlink == true){%>
+          <a class="ts-pushmenu-mp-back" href="#color">back</a>
+  <%}%>
   <ul>
-    <%nav.heading.links.forEach(function(navlinkobj,i){
+    <%nav.links.forEach(function(navlinkobj,i){
       console.log('navlinkobj',navlinkobj);
         %>
-        <li class="icon icon-arrow-left"><a class="" data-href="#<%- navlinkobj.heading.link%>"><%- navlinkobj.heading.label%></a>
-        <%if(navlinkobj.heading.links){
-            //getNavHtml(navlinkobj);
+        <li class="icon icon-arrow-left"><a class="" 
+
+<% if(!navlinkobj.backlink){%>data-href="#<%- navlinkobj.link %>"<%}%> ><%- navlinkobj.label%></a>
+        <%if(navlinkobj.links){
+            getNavHtml(navlinkobj);
           }%>
         </li>
         <%
@@ -60,5 +98,5 @@
 </div>
   <%};
 
-  getNavHtml(navigation);
+  getNavHtml(heading);
  %>
