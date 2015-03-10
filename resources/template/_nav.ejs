@@ -1,55 +1,63 @@
-<div id="navlinks" class="ts-pushmenu-mp-level">
-  <h2 class="icon icon-world"><a href="#top" class="closemenu">Home</a></h2>
+<% var navigation={
+      heading:{ 
+        label: 'Home', 
+        link: 'top',
+        linkclass:'navlinks-section',
+        links:[{
+          heading:{
+            label: 'Typography', 
+            link: 'typography',
+            linkclass:'icon icon-tv',
+            links:[{
+              label:'Headings',
+              link:'headings',
+              linkclass:'icon icon-tv'
+            },{
+              label:'Paragraph',
+              link:'paragraph',
+              linkclass:'icon icon-tv'
+            }]
+          },
+          heading:{
+            label: 'Layout', 
+            link: 'layout',
+            linkclass:'icon icon-tv',
+            links:[{
+              label:'grid',
+              link:'grid',
+              linkclass:'icon icon-tv'
+            },{
+              label:'Container',
+              link:'container',
+              linkclass:'icon icon-tv'
+            }]
+          },
+          
+        }] 
+      } 
+    };
+
+  var getNavHtml = function(nav){%>
+<div class="ts-pushmenu-mp-level">
+  <%if(typeof nav !=='undefined' && typeof nav.heading !=='undefined' && typeof nav.heading.link !=='undefined'){%>
+    <h4 class="" data-href="#<%- nav.heading.link %>"><%- nav.heading.label %></h4>
+  <%}%>
+  <% if(typeof nav !=='undefined' && typeof nav.heading !=='undefined' && nav.heading.links && nav.heading.links.length>0){%>
   <ul>
-    <li class="icon icon-arrow-left">
-      <a class="icon icon-display" href="#color">Colors</a>
-      <div class="ts-pushmenu-mp-level">
-        <h3 class="icon icon-display">Colors</h3>
-        <a class="ts-pushmenu-mp-back" href="#color">back</a>
-        <ul>
-          <li class="icon icon-arrow-left">
-            <a class="icon icon-phone" href="#color">Borders</a>
-          </li>
-          <li class="icon icon-arrow-left">
-            <a class="icon icon-tv" href="#color">Backgrouds</a>
-          </li>
-          <li class="icon icon-arrow-left">
-            <a class="icon icon-camera" href="#color">Text</a>
-          </li>
-        </ul>
-      </div>
-    </li>
-    <li class="icon icon-arrow-left">
-      <a class="icon icon-news" href="#typography">Typography</a>
-      <div class="ts-pushmenu-mp-level">
-        <h3 class="icon icon-news">Typography</h3>
-        <a class="ts-pushmenu-mp-back" href="#">back</a>
-        <ul>
-          <li><a href="#typography">Headings</a>
-          </li>
-          <li><a href="#typography">Paragraph</a>
-          </li>
-        </ul>
-      </div>
-    </li>
-    <li class="icon icon-arrow-left">
-      <a class="icon icon-shop" href="#layout">Layout</a>
-      <div class="ts-pushmenu-mp-level">
-        <h3 class="icon icon-shop">Layout</h3>
-        <a class="ts-pushmenu-mp-back" href="#layout">back</a>
-        <ul>
-          <li class="icon icon-arrow-left">
-            <a class="icon icon-t-shirt" href="#layout">Grid</a>
-          </li>
-          <li>
-            <a class="icon icon-diamond" href="#layout">Position</a>
-          </li>
-        </ul>
-      </div>
-    </li>
-    <li><a class="icon icon-photo" href="#responsive">Responsive</a>
-    </li>
-    <li><a class="icon icon-wallet" href="#customize">Customize</a>
-    </li>
+    <%nav.heading.links.forEach(function(navlinkobj,i){
+      console.log('navlinkobj',navlinkobj);
+        %>
+        <li class="icon icon-arrow-left"><a class="" data-href="#<%- navlinkobj.heading.link%>"><%- navlinkobj.heading.label%></a>
+        <%if(navlinkobj.heading.links){
+            //getNavHtml(navlinkobj);
+          }%>
+        </li>
+        <%
+      })%>
   </ul>
+  <%}%>
 </div>
+  <%};
+
+  getNavHtml(navigation);
+ %>

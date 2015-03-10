@@ -18,16 +18,16 @@
 </head>
 
 <body class="ts-pushmenu-container ts-height-100 ts-no-x-overflow">
-  <div id="ts-pushmenu-mp-pusher" class="ts-pushmenu-mp-pusher ts-height-100 ts-pushmenu-mp-right ">
+  <div id="ts-pushmenu-mp-pusher" class="ts-pushmenu-mp-pusher ts-height-100 ">
     <main class="ts-pushmenu-scroller ts-height-100 ">
       <div class="ts-pushmenu-scroller-inner ts-height-100 ">
-  <header class="ts-position-fixed ts-position-top ts-width-100 ts-z-index-1000 ts-bg-text-primary-color ts-serif-clean ts-row ts-padding-md">
-  <div id="trigger" class="ts-position-absolute ts-position-right ts-position-top">
+  <header id="nav-header" class="ts-position-fixed ts-position-top ts-width-100 ts-z-index-1000 ts-bg-text-primary-color ts-serif-clean ts-row ts-padding-md minimize">
+  <div id="trigger" class="ts-position-absolute ts-position-left ts-position-top">
     <a href="#" id="trigger" class="ts-icon-menu-trigger ts-">
       <img class="ts-nav-image" src="img/menu.png">
     </a>
   </div>
-  <div class="ts-text-xl ts-text-center">Stylie</div>
+  <div class="ts-text-xx ts-text-center">Stylie</div>
 </header>
     <a name="#top"></a>
 <article class="ts-text-container  ts-height-100">
@@ -553,7 +553,9 @@
     .ts-padding-xx
   </div>
 </div>
-        <h3>Height & Width</h3>
+        <a name="#layout-heightwidth"></a>
+<h3>Height & Width</h3>
+<a name="#layout-heightwidth-height"></a>
 <h6>Height</h6>
 <div class="ts-row ts-border-solid-micro ts-container-margin-lg ts-text-center ts-text-sm ts-height-33">
   <div class="ts-col-span3 ts-border-solid-micro ts-height-10">
@@ -583,6 +585,7 @@
     .ts-height-66
   </div>
 </div>
+<a name="#layout-heightwidth-width"></a>
 <h6>Width</h6>
 <div class="ts-row ts-border-solid-micro ts-container-margin-lg ts-text-center  ts-text-xs ">
   <div class="ts-border-solid-micro ts-width-10">
@@ -610,7 +613,9 @@
     .ts-width-100
   </div>
 </div>
-          <h3>Containers</h3>
+          <a name="#layout-containers"></a>
+<h3>Containers</h3>
+<a name="#layout-containers-height"></a>
 <h6>Height containers</h6>
 <div class="ts-row ts-border-solid-micro ts-container-margin-lg ts-text-center ts-text-sm ts-bg-primary-text-color">
   <div class="ts-bg-text-primary-color ts-container-margin-xx">
@@ -637,6 +642,7 @@
     .ts-container-margin-xs
   </div>
 </div>
+<a name="#layout-containers-width"></a>
 <h6>Width containers</h6>
 <div class="ts-row ts-border-solid-micro ts-container-margin-lg ts-text-center ts-text-sm ts-bg-primary-text-color">
   <div class="ts-bg-text-primary-color ts-container-margin-md ts-container">
@@ -651,6 +657,7 @@
     .ts-container-margin-auto
   </div>
 </div>
+<a name="#layout-containers-content"></a>
 <h6>Content containers</h6>
 <p>The content based containers are used to define margins for content layouts</p>
 <div class="ts-row ts-border-solid-micro ts-container-margin-lg ts-text-center ts-text-sm ts-bg-primary-text-color">
@@ -667,6 +674,7 @@
     .ts-xl-spacing-margin
   </div>
 </div>
+<a name="#layout-containers-other"></a>
 <p>There are two additional overflow constraints</p>
 <ul class="ts-text-left ts-text-sm">
   <li>
@@ -687,6 +695,7 @@
     <p>The default size and percent values can be modified by manipulating
       <span class="ts-code">variables.less</span>
     </p>
+    <a name="#responsive-visibility"></a>
     <h6>Visibility</h6>
     <p>It's possible to hide elements based on the size of the screen</p>
     <ul class="ts-text-sm">
@@ -697,6 +706,7 @@
       <li>.ts-screenxl-hidden - hide element when screen is extra large sized</li>
       <li>.ts-screenxx-hidden - hide element when screen is extra huge sized</li>
     </ul>
+    <a name="#responsive-grid"></a>
     <h6>Grid</h6>
     <p>You can set the size of a column based on the screen size using the screen[xs:xx] naming convention</p>
     <ul class="ts-text-sm">
@@ -707,6 +717,7 @@
       <li>.ts-screenxl-col-span12 - span 12 columns when screen is extra large sized</li>
       <li>.ts-screenxx-col-span8 - span 8 columns when screen is extra huge sized</li>
     </ul>
+    <a name="#responsive-layout"></a>
     <h6>Layout</h6>
     <p>You can set the height and width of a column based on the screen size using the screen[xs:xx] naming convention</p>
     <ul class="ts-text-sm">
@@ -716,6 +727,7 @@
       <li>.ts-screenlg-width-10 - width set to 10% when screen is large sized</li>
       <li>.ts-screenxl-height-75 - height set to 75% when screen is extra large sized</li>
     </ul>
+    <a name="#responsive-headings"></a>
     <h6>Headings</h6>
     <p>Heading sizes are calculated as ratios based on the size of the screen and the default <i>@heading-size</i>.</p>
     <ul class="ts-text-xs">
@@ -733,6 +745,7 @@
       <li>h3 on extra large screen - font-size: (@heading-size*(6/8) * @headingxl);</li>
       <li>h4 on small screen - font-size: (@heading-size*(5/8) * @headingsm);</li>
     </ul>
+    <a name="#responsive-navelements"></a>
     <h6>Nav Elements</h6>
     <p>The nav links will collapse when the screen is smaller than <i>@navcollapse</i>
     </p>
@@ -875,62 +888,23 @@
 </footer>
 </div>
 </main>
-<nav id="ts-pushmenu-mp-menu" class="ts-pushmenu-mp-menu ts-pushmenu-mp-right">
-  <div id="navlinks" class="ts-pushmenu-mp-level">
-  <h2 class="icon icon-world"><a href="#top" class="closemenu">Home</a></h2>
+<nav id="ts-pushmenu-mp-menu" class="ts-pushmenu-mp-menu navlinks-section">
+  
+<div class="ts-pushmenu-mp-level">
+  
+    <h4 class="" data-href="#top">Home</h4>
+  
+  
   <ul>
-    <li class="icon icon-arrow-left">
-      <a class="icon icon-display" href="#color">Colors</a>
-      <div class="ts-pushmenu-mp-level">
-        <h3 class="icon icon-display">Colors</h3>
-        <a class="ts-pushmenu-mp-back" href="#color">back</a>
-        <ul>
-          <li class="icon icon-arrow-left">
-            <a class="icon icon-phone" href="#color">Borders</a>
-          </li>
-          <li class="icon icon-arrow-left">
-            <a class="icon icon-tv" href="#color">Backgrouds</a>
-          </li>
-          <li class="icon icon-arrow-left">
-            <a class="icon icon-camera" href="#color">Text</a>
-          </li>
-        </ul>
-      </div>
-    </li>
-    <li class="icon icon-arrow-left">
-      <a class="icon icon-news" href="#typography">Typography</a>
-      <div class="ts-pushmenu-mp-level">
-        <h3 class="icon icon-news">Typography</h3>
-        <a class="ts-pushmenu-mp-back" href="#">back</a>
-        <ul>
-          <li><a href="#typography">Headings</a>
-          </li>
-          <li><a href="#typography">Paragraph</a>
-          </li>
-        </ul>
-      </div>
-    </li>
-    <li class="icon icon-arrow-left">
-      <a class="icon icon-shop" href="#layout">Layout</a>
-      <div class="ts-pushmenu-mp-level">
-        <h3 class="icon icon-shop">Layout</h3>
-        <a class="ts-pushmenu-mp-back" href="#layout">back</a>
-        <ul>
-          <li class="icon icon-arrow-left">
-            <a class="icon icon-t-shirt" href="#layout">Grid</a>
-          </li>
-          <li>
-            <a class="icon icon-diamond" href="#layout">Position</a>
-          </li>
-        </ul>
-      </div>
-    </li>
-    <li><a class="icon icon-photo" href="#responsive">Responsive</a>
-    </li>
-    <li><a class="icon icon-wallet" href="#customize">Customize</a>
-    </li>
+    
+        <li class="icon icon-arrow-left"><a class="" data-href="#layout">Layout</a>
+        
+        </li>
+        
   </ul>
+  
 </div>
+  
 </nav>
 </div>
 <script>

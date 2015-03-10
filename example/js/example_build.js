@@ -1489,10 +1489,15 @@ var navlinks,
 	screenSizeElement,
 	screenSizeValElement,
 	PushMenu = require('stylie.pushmenu'),
+	classie = require('classie'),
 	StyliePushMenu,
+	mtpms,
 	closeMenuElements,
 	menuElement,
-	menuTriggerElement;
+	menuTriggerElement,
+	nav_header,
+	window_inner_height,
+	window_scroll_position;
 
 var getMatchMediaString = function (minwidth) {
 	return '(min-width: ' + minwidth + ')';
@@ -1500,20 +1505,22 @@ var getMatchMediaString = function (minwidth) {
 
 var navlinkclickhandler = function (e) {
 	var etarget = e.target,
-		etargethref = etarget.getAttribute('href'),
+		etargethref = etarget.getAttribute('data-href'),
 		anchorlink,
 		anchorlinkTop;
 
-	StyliePushMenu._resetMenu();
 	if (etargethref && etargethref.charAt(0) === '#') {
 		anchorlink = document.querySelector('a[name="' + etargethref + '"]');
 		if (anchorlink) {
 			anchorlinkTop = anchorlink.getBoundingClientRect().top;
 			console.log('anchorlinkTop', anchorlinkTop);
-			console.log('window.scrollY', window.scrollY);
-			document.querySelector('main.ts-pushmenu-scroller').scrollTop = (anchorlinkTop + window.scrollY);
+			console.log('document.querySelector("main.ts-pushmenu-scroller").scrollTop', document.querySelector('main.ts-pushmenu-scroller').scrollTop);
+			console.log('mtpms.scrollY', mtpms.scrollTop);
+			mtpms.scrollTop = (anchorlinkTop + mtpms.scrollTop);
 		}
+		StyliePushMenu._resetMenu();
 	}
+
 };
 
 var matchMediaEventHandler = function () {
@@ -1549,25 +1556,43 @@ var closeNavMenu = function () {
 	StyliePushMenu._resetMenu();
 };
 
+var scrollNavPos = function () {
+	window_scroll_position = mtpms.scrollTop;
+	if (nav_header && (window_scroll_position > (window_inner_height * 0.5))) {
+		classie.remove(nav_header, 'minimize');
+	}
+	else if (nav_header) {
+		classie.add(nav_header, 'minimize');
+	}
+};
+
+
 window.addEventListener('load', function () {
-	navlinks = document.querySelector('#navlinks');
+	navlinks = document.querySelector('nav.navlinks-section');
 	screenSizeElement = document.querySelector('#screensize');
 	screenSizeValElement = document.querySelector('#screensizeval');
 	menuElement = document.getElementById('ts-pushmenu-mp-menu');
 	menuTriggerElement = document.getElementById('trigger');
 	closeMenuElements = document.querySelectorAll('.closemenu');
+	nav_header = document.querySelector('#nav-header');
+	window_inner_height = window.innerHeight;
+	mtpms = document.querySelector('main.ts-pushmenu-scroller');
+	window_scroll_position = mtpms.scrollTop;
+	mtpms.addEventListener('scroll', scrollNavPos, false);
+
+	scrollNavPos();
 
 	for (var x = 0; x < closeMenuElements.length; x++) {
 		closeMenuElements[x].addEventListener('click', closeNavMenu, false);
 	}
 	if (navlinks) {
-		navlinks.addEventListener('click', navlinkclickhandler, false);
+		navlinks.addEventListener('mousedown', navlinkclickhandler, false);
 	}
 	StyliePushMenu = new PushMenu({
 		el: menuElement,
 		trigger: menuTriggerElement,
-		type: 'overlap', // 'cover',
-		position: 'right'
+		type: 'cover', // 'overlap', // 'cover',
+		// position: 'right'
 	});
 	matchMediaEventHandler();
 	window.StyliePushMenu = StyliePushMenu;
@@ -1575,4 +1600,4 @@ window.addEventListener('load', function () {
 
 window.addEventListener('resize', matchMediaEventHandler, false);
 
-},{"stylie.pushmenu":8}]},{},[13]);
+},{"classie":1,"stylie.pushmenu":8}]},{},[13]);

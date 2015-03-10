@@ -36,7 +36,7 @@ module.exports = function (grunt) {
 			]
 		},
 		jsbeautifier: {
-			files: ['<%= jshint.all %>', '!resources/template/stylie.ejs'],
+			files: ['<%= jshint.all %>', '!resources/template/stylie.ejs', '!resources/template/_nav.ejs'],
 			options: {
 				config: '.jsbeautify'
 			}
