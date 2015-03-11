@@ -15,30 +15,6 @@ var menu_gettingstarted = {
     linkclass:'icon icon-tv'
   }]
 };
-var menu_styleguide = {
-  labelheading:true,
-  backlink:true,
-  label: 'Colors', 
-  link: 'colors',
-  linkclass:'icon icon-tv',
-  links:[{
-    label:'Borders',
-    link:'colors-borders',
-    linkclass:'icon icon-tv'
-  },{
-    label:'Backgrounds',
-    link:'colors-backgrounds',
-    linkclass:'icon icon-tv'
-  },{
-    label:'Text',
-    link:'colors-text',
-    linkclass:'icon icon-tv'
-  },{
-    label:'Shadows',
-    link:'colors-shadows',
-    linkclass:'icon icon-tv'
-  }]
-};
 var menu_color = {
   labelheading:true,
   backlink:true,
@@ -233,6 +209,31 @@ var menu_customize = {
   linkclass:'icon icon-tv'
 };
 
+var menu_styleguide = {
+  labelheading:false,
+  backlink:false,
+  label: 'Style Guide', 
+  link: 'styleguide',
+  // linkclass:'icon icon-tv',
+  // links:[{
+  //   label:'Borders',
+  //   link:'colors-borders',
+  //   linkclass:'icon icon-tv'
+  // },{
+  //   label:'Backgrounds',
+  //   link:'colors-backgrounds',
+  //   linkclass:'icon icon-tv'
+  // },{
+  //   label:'Text',
+  //   link:'colors-text',
+  //   linkclass:'icon icon-tv'
+  // },{
+  //   label:'Shadows',
+  //   link:'colors-shadows',
+  //   linkclass:'icon icon-tv'
+  // }]
+};
+
 var heading = { 
   labelheading:true,
   label: 'Home', 
@@ -244,7 +245,8 @@ var heading = {
     menu_type,
     menu_layout,
     menu_responsive,
-    menu_customize
+    menu_customize,
+    menu_styleguide
   ] 
 } ;
 
