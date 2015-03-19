@@ -1,0 +1,79 @@
+@import "fonts.less";
+table{
+    &.ts{
+        border-spacing: 0;
+    }
+}
+.ts-table{
+    &.ts-table-border{
+        border:1px solid @dividerColor;
+    }
+    &.ts-table-cell-border{
+        td,th{
+            border-right:1px solid @dividerColor;
+            border-bottom:1px solid @dividerColor;
+        }
+        td:last-child,th:last-child{
+            border-right:none;
+            // border-bottom:1px solid @dividerColor;
+        }
+    }
+    .ts-table-head,
+    .ts-table-foot{
+        font-weight: bold;
+        tr{
+            background: darken(@secondaryTextColor,20%);
+            color: @textPrimaryColor;
+        }
+        tr:nth-child(odd){
+            // background: lighten(darken(@secondaryTextColor,20%),48%);
+            background: darken(@secondaryTextColor,20%);
+            color: @textPrimaryColor;
+        }
+    }
+    .ts-table-body{
+        tr{
+            background: @textPrimaryColor;
+        }
+        tr:nth-child(odd){
+            background: lighten(@secondaryTextColor,48%);
+        }
+    }
+
+    &.ts-table-padding-xs{
+        padding:@sizexs;
+        td,th{
+            padding:@sizexs;
+        }
+    }
+    &.ts-table-padding-sm{
+        padding:@sizesm;
+        td,th{
+            padding:@sizesm;
+        }
+    }
+    &.ts-table-padding-md{
+        padding:@sizemd;
+        td,th{
+            padding:@sizemd;
+        }
+    }
+    &.ts-table-padding-lg{
+        padding:@sizelg;
+        td,th{
+            padding:@sizelg;
+        }
+    }
+    &.ts-table-padding-xl{
+        padding:@sizexl;
+        td,th{
+            padding:@sizexl;
+        }
+    }
+    &.ts-table-padding-xx{
+        padding:@sizexx;
+        td,th{
+            padding:@sizexx;
+        }
+    }
+}
