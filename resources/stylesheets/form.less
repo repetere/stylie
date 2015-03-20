@@ -14,19 +14,31 @@
     border:1px solid lighten(@darkPrimaryColor, 10%);
 }
 .ts-button{
-    // .ts-bg-light-primary-color;
-    // .ts-border-divider-text-color;
-    .ts-text-dark-primary-color;
-    background-color: @textPrimaryColor;
-    .ts-border-accent-color;
-    color:@accentColor;
+    background-color: @accentColor;
     .ts-formelement-border;
-    border-color: @accentColor;
-    padding:0 @sizemd;
+    border-color: lighten(@accentColor, 5%);
+    color:@textPrimaryColor;
     cursor:pointer;
-    &:hover{
-        background-color: darken(@textPrimaryColor, 10%);
+    display: inline-block;
+    padding-left: @sizemd;
+    padding-right: @sizemd;
+    &input[type="button"],
+    &input[type="submit"],
+    &button[type="submit"],
+    button{
+        padding-top:@sizelg;
+        padding-bottom:@sizelg;
     }
+    &:hover{
+        background-color: lighten(@accentColor, 10%);
+    }
+}
+input[type="button"].ts-button,
+input[type="submit"].ts-button,
+button[type="submit"].ts-button,
+button{
+    padding-top:(@sizemd *.85);
+    padding-bottom:(@sizemd *.85);
 }
 .ts-form{
     .ts-form-padding{
