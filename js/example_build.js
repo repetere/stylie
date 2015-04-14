@@ -1,5 +1,117 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /*
+ * stylie
+ * http://github.com/typesettin/stylie
+ *
+ * Copyright (c) 2014 Typesettin. All rights reserved.
+ */
+
+'use strict';
+
+module.exports = require('./lib/stylie');
+
+},{"./lib/stylie":2}],2:[function(require,module,exports){
+/*
+ * stylie
+ * http://github.com/typesettin/stylie
+ *
+ * Copyright (c) 2014 Yaw Joseph Etse. All rights reserved.
+ */
+'use strict';
+
+var extend = require('util-extend'),
+	events = require('events'),
+	util = require('util');
+
+/**
+ * A module that represents a stylie object, a componentTab is a page composition tool.
+ * @{@link https://github.com/typesettin/stylie}
+ * @author Yaw Joseph Etse
+ * @copyright Copyright (c) 2014 Typesettin. All rights reserved.
+ * @license MIT
+ * @constructor stylie
+ * @requires module:util-extent
+ * @requires module:util
+ * @requires module:events
+ * @param {object} el element of tab container
+ * @param {object} options configuration options
+ */
+var stylie = function (options) {
+	events.EventEmitter.call(this);
+	this.options = extend(this.options, options);
+	this._init();
+};
+
+util.inherits(stylie, events.EventEmitter);
+
+/** module default configuration */
+stylie.prototype.options = {
+	screenxs: '20em',
+	screensm: '29em',
+	screenmd: '32em',
+	screenlg: '50em',
+	screenxl: '70em',
+	screenxx: '90em',
+	screenSizeElement: null,
+	screenSizeValElement: null,
+	sizeContainerElement: window,
+	screenSizeElementSelector: '#screensize',
+	screenSizeValElementSelector: '#screensizeval'
+};
+/**
+ * initializes tabs and shows current tab.
+ * @emits stylieInitialized
+ */
+stylie.prototype._init = function () {
+	var screenAsideElement = document.createElement('aside');
+	screenAsideElement.setAttribute('class', 'ts-position-fixed ts-position-right ts-bg-text-primary-color ts-position-bottom ts-margin-xl ts-text-xs');
+	screenAsideElement.innerHTML = '<span id="screensize">screenlg:</span> <span id="screensizeval" class="ts-text-accent-color">50em</span>';
+	var getMatchMediaString = function (minwidth) {
+		return '(min-width: ' + minwidth + ')';
+	};
+
+	var matchMediaEventHandler = function () {
+		if (this.options.screenSizeElement) {
+			if (window.matchMedia(getMatchMediaString(this.options.screenxx)).matches) {
+				this.options.screenSizeElement.innerHTML = 'screenxx:';
+				this.options.screenSizeValElement.innerHTML = this.options.screenxx;
+			}
+			else if (window.matchMedia(getMatchMediaString(this.options.screenxl)).matches) {
+				this.options.screenSizeElement.innerHTML = 'screenxl:';
+				this.options.screenSizeValElement.innerHTML = this.options.screenxl;
+			}
+			else if (window.matchMedia(getMatchMediaString(this.options.screenlg)).matches) {
+				this.options.screenSizeElement.innerHTML = 'screenlg:';
+				this.options.screenSizeValElement.innerHTML = this.options.screenlg;
+			}
+			else if (window.matchMedia(getMatchMediaString(this.options.screenmd)).matches) {
+				this.options.screenSizeElement.innerHTML = 'screenmd:';
+				this.options.screenSizeValElement.innerHTML = this.options.screenmd;
+			}
+			else if (window.matchMedia(getMatchMediaString(this.options.screensm)).matches) {
+				this.options.screenSizeElement.innerHTML = 'screensm:';
+				this.options.screenSizeValElement.innerHTML = this.options.screensm;
+			}
+			else if (window.matchMedia(getMatchMediaString(this.options.screenxs)).matches) {
+				this.options.screenSizeElement.innerHTML = 'screenxs:';
+				this.options.screenSizeValElement.innerHTML = this.options.screenxs;
+			}
+		}
+	}.bind(this);
+	document.body.appendChild(screenAsideElement);
+
+	this.options.screenSizeElement = document.querySelector(this.options.screenSizeElementSelector);
+	this.options.screenSizeValElement = document.querySelector(this.options.screenSizeValElementSelector);
+	this.options.sizeContainerElement.addEventListener('resize', matchMediaEventHandler, false);
+	matchMediaEventHandler();
+
+	this.emit('stylieInitialized');
+};
+
+module.exports = stylie;
+
+},{"events":5,"util":9,"util-extend":14}],3:[function(require,module,exports){
+/*
  * classie
  * http://github.amexpub.com/modules/classie
  *
@@ -8,7 +120,7 @@
 
 module.exports = require('./lib/classie');
 
-},{"./lib/classie":2}],2:[function(require,module,exports){
+},{"./lib/classie":4}],4:[function(require,module,exports){
 /*!
  * classie - class helper functions
  * from bonzo https://github.com/ded/bonzo
@@ -91,7 +203,7 @@ module.exports = require('./lib/classie');
   if ( typeof window === "object" && typeof window.document === "object" ) {
     window.classie = classie;
   }
-},{}],3:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -394,7 +506,7 @@ function isUndefined(arg) {
   return arg === void 0;
 }
 
-},{}],4:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -419,7 +531,7 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],5:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -479,14 +591,14 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],6:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
     && typeof arg.fill === 'function'
     && typeof arg.readUInt8 === 'function';
 }
-},{}],7:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -1076,7 +1188,7 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":6,"_process":5,"inherits":4}],8:[function(require,module,exports){
+},{"./support/isBuffer":8,"_process":7,"inherits":6}],10:[function(require,module,exports){
 /*
  * stylie.pushmenu
  * https://github.com/typesettin/stylie.pushmenu
@@ -1088,7 +1200,7 @@ function hasOwnProperty(obj, prop) {
 
 module.exports = require('./lib/stylie.pushmenu');
 
-},{"./lib/stylie.pushmenu":9}],9:[function(require,module,exports){
+},{"./lib/stylie.pushmenu":11}],11:[function(require,module,exports){
 /*
  * stylie.pushmenu
  * https://github.com/typesettin/stylie.pushmenu
@@ -1394,7 +1506,7 @@ PushMenu.prototype._toggleLevels = function () {
 
 module.exports = PushMenu;
 
-},{"classie":1,"detectcss":10,"events":3,"util":7,"util-extend":12}],10:[function(require,module,exports){
+},{"classie":3,"detectcss":12,"events":5,"util":9,"util-extend":14}],12:[function(require,module,exports){
 /*
  * detectCSS
  * http://github.amexpub.com/modules/detectCSS
@@ -1404,7 +1516,7 @@ module.exports = PushMenu;
 
 module.exports = require('./lib/detectCSS');
 
-},{"./lib/detectCSS":11}],11:[function(require,module,exports){
+},{"./lib/detectCSS":13}],13:[function(require,module,exports){
 /*
  * detectCSS
  * http://github.amexpub.com/modules
@@ -1443,7 +1555,7 @@ exports.prefixed = function(style){
     }
     return false;
 };
-},{}],12:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -1478,19 +1590,15 @@ function extend(origin, add) {
   return origin;
 }
 
-},{}],13:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 'use strict';
 var navlinks,
-	screenxs = '20em',
-	screensm = '29em',
-	screenmd = '32em',
-	screenlg = '50em',
-	screenxl = '70em',
-	screenxx = '90em',
 	screenSizeElement,
 	screenSizeValElement,
 	PushMenu = require('stylie.pushmenu'),
 	classie = require('classie'),
+	Stylie = require('../../index'),
+	stylie,
 	StyliePushMenu,
 	mtpms,
 	closeMenuElements,
@@ -1500,9 +1608,7 @@ var navlinks,
 	window_inner_height,
 	window_scroll_position;
 
-var getMatchMediaString = function (minwidth) {
-	return '(min-width: ' + minwidth + ')';
-};
+
 
 var navlinkclickhandler = function (e) {
 	// console.log('e', e);
@@ -1525,34 +1631,6 @@ var navlinkclickhandler = function (e) {
 
 };
 
-var matchMediaEventHandler = function () {
-	if (screenSizeElement) {
-		if (window.matchMedia(getMatchMediaString(screenxx)).matches) {
-			screenSizeElement.innerHTML = 'screenxx:';
-			screenSizeValElement.innerHTML = screenxx;
-		}
-		else if (window.matchMedia(getMatchMediaString(screenxl)).matches) {
-			screenSizeElement.innerHTML = 'screenxl:';
-			screenSizeValElement.innerHTML = screenxl;
-		}
-		else if (window.matchMedia(getMatchMediaString(screenlg)).matches) {
-			screenSizeElement.innerHTML = 'screenlg:';
-			screenSizeValElement.innerHTML = screenlg;
-		}
-		else if (window.matchMedia(getMatchMediaString(screenmd)).matches) {
-			screenSizeElement.innerHTML = 'screenmd:';
-			screenSizeValElement.innerHTML = screenmd;
-		}
-		else if (window.matchMedia(getMatchMediaString(screensm)).matches) {
-			screenSizeElement.innerHTML = 'screensm:';
-			screenSizeValElement.innerHTML = screensm;
-		}
-		else if (window.matchMedia(getMatchMediaString(screenxs)).matches) {
-			screenSizeElement.innerHTML = 'screenxs:';
-			screenSizeValElement.innerHTML = screenxs;
-		}
-	}
-};
 
 var closeNavMenu = function () {
 	StyliePushMenu._resetMenu();
@@ -1596,10 +1674,9 @@ window.addEventListener('load', function () {
 		type: 'cover', // 'overlap', // 'cover',
 		// position: 'right'
 	});
-	matchMediaEventHandler();
+	stylie = new Stylie();
+	window.stylie = stylie;
 	window.StyliePushMenu = StyliePushMenu;
 });
 
-window.addEventListener('resize', matchMediaEventHandler, false);
-
-},{"classie":1,"stylie.pushmenu":8}]},{},[13]);
+},{"../../index":1,"classie":3,"stylie.pushmenu":10}]},{},[15]);
