@@ -61,7 +61,7 @@
 }
 
 //micro/extra-small screen
-@media screen and (max-width: @screenxs)  {
+@media screen and (min-width:(@screenxs)) and (max-width: @screensm)  {
     .ts{
         .ts-screenxs-hidden{
             display: none;     
@@ -192,7 +192,7 @@
     }
 }
 //small/mobile
-@media screen and (min-width:@screenxs + 0.001em) and (max-width: @screensm){
+@media screen and (min-width:(@screensm + 0.001em)) and (max-width: @screenmd){
     .ts{
         .ts-screensm-hidden{
             display: none;     
@@ -321,7 +321,7 @@
 }
 
 //medium/ipad
-@media screen and (min-width:@screensm + 0.001em) and (max-width: @screenmd) {
+@media screen and (min-width:(@screenmd + 0.001em)) and (max-width: @screenlg) {
     .ts{
         .ts-screenmd-hidden{
             display: none;     
@@ -450,7 +450,7 @@
 }
 
 //large screen
-@media screen and (min-width:@screenmd + 0.001em) and (max-width: @screenlg) {
+@media screen and (min-width:(@screenlg + 0.001em)) and (max-width: @screenxl) {
     .ts{
         .ts-screenlg-hidden{
             display: none;     
@@ -572,7 +572,7 @@
     }
 }
 //extra-large screen
-@media screen and (min-width:@screenlg + 0.001em) and (max-width: @screenxl) {
+@media screen and (min-width:(@screenxl + 0.001em)) and (max-width: @screenxx) {
     .ts{
         .ts-screenxl-hidden{
             display: none;     
@@ -694,7 +694,7 @@
     }
 }
 //extra-huge screen
-@media screen and (min-width: @screenxl) {
+@media screen and (min-width: @screenxx) {
     .ts{
         .ts-screenxx-hidden{
             display: none;     
