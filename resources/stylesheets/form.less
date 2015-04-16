@@ -1,4 +1,11 @@
 @import "fonts.less";
+.ts-button-sizing{
+    padding-top:0;
+    padding-bottom:0;
+}
+.ts-button-lineheight{
+    line-height: @line-height * 0.875;
+}
 .ts-form-optional{
     display: none;
     &.ts-show-optional{
@@ -14,31 +21,96 @@
     border:1px solid lighten(@darkPrimaryColor, 10%);
 }
 .ts-button{
-    background-color: @accentColor;
+    color:@primaryTextColor;
+    background-color: @textPrimaryColor;
+    border-color: darken(@textPrimaryColor, 5%);
     .ts-formelement-border;
-    border-color: lighten(@accentColor, 5%);
-    color:@textPrimaryColor;
     cursor:pointer;
     display: inline-block;
     padding-left: @sizemd;
     padding-right: @sizemd;
+    .ts-button-lineheight;
     &input[type="button"],
     &input[type="submit"],
     &button[type="submit"],
     button{
-        padding-top:@sizelg;
-        padding-bottom:@sizelg;
+        .ts-button-sizing;
+        .ts-button-lineheight;
     }
     &:hover{
-        background-color: lighten(@accentColor, 10%);
+        background-color: darken(@textPrimaryColor, 10%);
+    }
+    &.ts-button-light-primary-color{
+        color:@primaryTextColor;
+        background-color: @lightPrimaryColor;
+        border-color: lighten(@lightPrimaryColor, 5%);
+        &:hover{
+            background-color: lighten(@lightPrimaryColor, 10%);
+        }
+    }
+    &.ts-button-secondary-text-color{
+        color:@primaryTextColor;
+        background-color: @secondaryTextColor;
+        border-color: lighten(@secondaryTextColor, 5%);
+        &:hover{
+            background-color: lighten(@secondaryTextColor, 10%);
+        }
+    }
+    &.ts-button-divider-text-color{
+        color:@primaryTextColor;
+        background-color: @dividerColor;
+        border-color: lighten(@dividerColor, 5%);
+        &:hover{
+            background-color: lighten(@dividerColor, 10%);
+        }
+    }
+    &.ts-button-accent-color{
+        color:@textPrimaryColor;
+        background-color: @accentColor;
+        border-color: lighten(@accentColor, 5%);
+        &:hover{
+            background-color: lighten(@accentColor, 10%);
+        }
+    }
+    &.ts-button-error-color{
+        color:@textPrimaryColor;
+        background-color: @errorColor;
+        border-color: lighten(@errorColor, 5%);
+        &:hover{
+            background-color: lighten(@errorColor, 10%);
+        }
+    }
+    &.ts-button-dark-primary-color{
+        color:@textPrimaryColor;
+        background-color: @darkPrimaryColor;
+        border-color: lighten(@darkPrimaryColor, 5%);
+        &:hover{
+            background-color: lighten(@darkPrimaryColor, 10%);
+        }
+    }
+    &.ts-button-primary-color{
+        color:@textPrimaryColor;
+        background-color: @primaryColor;
+        border-color: lighten(@primaryColor, 5%);
+        &:hover{
+            background-color: lighten(@primaryColor, 10%);
+        }
+    }
+    &.ts-button-primary-text-color{
+        color:@textPrimaryColor;
+        background-color: @primaryTextColor;
+        border-color: lighten(@primaryTextColor, 5%);
+        &:hover{
+            background-color: lighten(@primaryTextColor, 10%);
+        }
     }
 }
 input[type="button"].ts-button,
 input[type="submit"].ts-button,
 button[type="submit"].ts-button,
 button{
-    padding-top:(@sizemd *.85);
-    padding-bottom:(@sizemd *.85);
+    .ts-button-sizing;
+    .ts-button-lineheight;
 }
 .ts-form{
     .ts-form-padding{

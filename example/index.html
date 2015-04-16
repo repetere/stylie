@@ -107,6 +107,15 @@
         <td class="ts-bg-secondary-text-color">Secondary Text Color</td>
         <td class="ts-bg-divider-text-color">Divider Color</td>
       </tr>
+      <tr>
+        <td colspan="4">
+          <table class="ts ts-width-100 ts-text-center">
+            <td class="ts-text-text-primary-color ts-bg-dark-error-color">Dark Error Color</td>
+            <td class="ts-bg-error-color">Error Color</td>
+            <td class="ts-bg-light-error-color">Light Error Color</td>
+          </table>
+        </td>
+      </tr>
     </table>
   </section>
   <section>
@@ -127,7 +136,14 @@
       <span class="ts-border-primary-text-color example-color-border"> .ts-border-primary-text-color</span>
 
       <span class="ts-border-secondary-text-color example-color-border">.ts-border-secondary-text-color</span>
+
       <span class="ts-border-divider-text-color example-color-border">.ts-border-divider-text-color</span>
+
+      <span class="ts-border-dark-error-color example-color-border">.ts-border-dark-error-color</span>
+
+      <span class="ts-border-error-color example-color-border"> .ts-border-error-color</span>
+
+      <span class="ts-border-light-error-color example-color-border">.ts-border-light-error-color</span>
 
     </p>
     <a name="#colors-backgrounds"></a>
@@ -147,7 +163,14 @@
       <span class="ts-bg-primary-text-color example-color-bg ts-text-text-primary-color"> .ts-bg-primary-text-color</span>
 
       <span class="ts-bg-secondary-text-color example-color-bg">.ts-bg-secondary-text-color</span>
+
       <span class="ts-bg-divider-text-color example-color-bg">.ts-bg-divider-text-color</span>
+
+      <span class="ts-text-text-primary-color  ts-bg-dark-error-color example-color-bg">.ts-bg-dark-error-color</span>
+
+      <span class="ts-bg-error-color example-color-bg"> .ts-bg-error-color</span>
+
+      <span class="ts-bg-light-error-color example-color-bg">.ts-bg-light-error-color</span>
 
     </p>
     <a name="#colors-text"></a>
@@ -167,7 +190,14 @@
       <span class="ts-text-primary-text-color example-color-bg"> .ts-text-primary-text-color</span>
 
       <span class="ts-text-secondary-text-color example-color-bg">.ts-text-secondary-text-color</span>
+
       <span class="ts-text-divider-text-color example-color-bg">.ts-text-divider-text-color</span>
+
+      <span class=" ts-text-dark-error-color example-color-bg">.ts-text-dark-error-color</span>
+
+      <span class="ts-text-error-color example-color-bg"> .ts-text-error-color</span>
+
+      <span class="ts-text-light-error-color example-color-bg">.ts-text-light-error-color</span>
     </p>
     <a name="#colors-shadows"></a>
     <h3>Shadows</h3>
@@ -843,6 +873,12 @@
           </li>
           <li>@dividerColor: <i>#B6B6B6;</i>
           </li>
+          <li>@darkErrorColor: <i>#D32F2F;</i>
+          </li>
+          <li>@errorColor: <i>#F44336;</i>
+          </li>
+          <li>@lightErrorColor: <i>#FFCDD2;</i>
+          </li>
         </ul>
       </div>
       <div class="ts-col-span4  ts-screenmd-col-span12">
@@ -851,6 +887,8 @@
           <li>@heading-size: <i>3em;</i>
           </li>
           <li>@maxtextwidth: <i>36em;</i>
+          </li>
+          <li>@line-height: <i>2;</i>
           </li>
         </ul>
       </div>
@@ -998,6 +1036,52 @@
       </div>
     </div>
   </section>
+
+  <section class="ts-row ts-container-margin-xl">
+    <div class="ts-col-span12 ts-no-margin-heading">
+      <div class="ts-row">
+        <div class="ts-col-span8 ts-col-nofloat">
+
+          <button class="ts-button">ts button</button>
+          <a href="#ts-button" class="ts-button">ts button</a>
+
+          <button class="ts-button ts-button-error-color">ts button error-color</button>
+          <a href="#ts-button-error-color" class="ts-button ts-button-error-color">ts button error-color</a>
+
+          <button class="ts-button ts-button-primary-text-color">ts button primary-text-color</button>
+          <a href="#ts-button-primary-text-color" class="ts-button ts-button-primary-text-color">ts button primary-text-color</a>
+
+          <button class="ts-button ts-button-secondary-text-color">ts button secondary-text-color</button>
+          <a href="#ts-button-secondary-text-color" class="ts-button ts-button-secondary-text-color">ts button secondary-text-color</a>
+
+          <button class="ts-button ts-button-divider-text-color">ts button divider-text-color</button>
+          <a href="#ts-button-divider-text-color" class="ts-button ts-button-divider-text-color">ts button divider-text-color</a>
+
+
+
+
+
+
+
+
+          <button class="ts-button ts-button-dark-primary-color">ts button dark-primary-color</button>
+          <a href="#ts-button-dark-primary-color" class="ts-button ts-button-dark-primary-color">ts button dark-primary-color</a>
+
+          <button class="ts-button ts-button-primary-color">ts button primary-color</button>
+          <a href="#ts-button-primary-color" class="ts-button ts-button-primary-color">ts button primary-color</a>
+
+          <button class="ts-button ts-button-light-primary-color">ts button light-primary-color</button>
+          <a href="#ts-button-light-primary-color" class="ts-button ts-button-light-primary-color">ts button light-primary-color</a>
+
+          <button class="ts-button ts-button-accent-color">ts button accent-color</button>
+          <a href="#ts-button-accent-color" class="ts-button ts-button-accent-color">ts button accent-color</a>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="ts-row ts-container-margin-xl">
     <div class="ts-col-span6 ts-height-33">
       <h1>h1 summary</h1>
