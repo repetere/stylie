@@ -148,7 +148,7 @@ body {
   overflow-x: hidden;
 }
 .ts {
-  line-height: 2;
+  line-height: 1.6;
 }
 .ts article,
 .ts aside,
@@ -806,22 +806,22 @@ body {
   font-size: 150%;
 }
 .ts .ts-line-height-xs {
-  line-height: 140%;
+  line-height: 112%;
 }
 .ts .ts-line-height-sm {
-  line-height: 170%;
+  line-height: 136%;
 }
 .ts .ts-line-height-md {
-  line-height: 200%;
+  line-height: 160%;
 }
 .ts .ts-line-height-lg {
-  line-height: 230%;
+  line-height: 184%;
 }
 .ts .ts-line-height-xl {
-  line-height: 260%;
+  line-height: 208%;
 }
 .ts .ts-line-height-xx {
-  line-height: 300%;
+  line-height: 240%;
 }
 .ts .ts-text-uppercase {
   text-transform: uppercase;
@@ -1019,7 +1019,7 @@ body {
   padding-bottom: 0;
 }
 .ts .ts-button-lineheight {
-  line-height: 1.75;
+  line-height: 1.4;
 }
 .ts .ts-form-optional {
   display: none;
@@ -1042,7 +1042,7 @@ body {
   display: inline-block;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  line-height: 1.75;
+  line-height: 1.4;
 }
 .ts .ts-buttoninput[type="button"],
 .ts .ts-buttoninput[type="submit"],
@@ -1050,7 +1050,7 @@ body {
 .ts .ts-button button {
   padding-top: 0;
   padding-bottom: 0;
-  line-height: 1.75;
+  line-height: 1.4;
 }
 .ts .ts-button:hover {
   background-color: #e6e6e6;
@@ -1125,7 +1125,7 @@ body {
 .ts button {
   padding-top: 0;
   padding-bottom: 0;
-  line-height: 1.75;
+  line-height: 1.4;
 }
 .ts .ts-form .ts-form-row {
   padding-top: 0.5rem;
