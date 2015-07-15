@@ -110,7 +110,7 @@ stylie.prototype._init = function () {
 
 module.exports = stylie;
 
-},{"events":5,"util":9,"util-extend":14}],3:[function(require,module,exports){
+},{"events":6,"util":10,"util-extend":15}],3:[function(require,module,exports){
 /*
  * classie
  * http://github.amexpub.com/modules/classie
@@ -120,7 +120,229 @@ module.exports = stylie;
 
 module.exports = require('./lib/classie');
 
-},{"./lib/classie":4}],4:[function(require,module,exports){
+},{"./lib/classie":5}],4:[function(require,module,exports){
+/* 
+ * classList.js: Cross-browser full element.classList implementation.
+ * 2014-07-23
+ *
+ * By Eli Grey, http://eligrey.com
+ * Public Domain.
+ * NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
+ */
+
+/*global self, document, DOMException, DOMTokenList */
+
+/*! @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js*/
+
+if ("document" in self) {
+
+    // Full polyfill for browsers with no classList support
+    if (!("classList" in document.createElement("_")) || document.createElementNS && !("classList" in document.createElementNS("http://www.w3.org/2000/svg", "g"))) {
+
+        (function(view) {
+
+            "use strict";
+
+            if (!('Element' in view)) {
+                return;
+            }
+
+            var classListProp = "classList",
+                protoProp = "prototype",
+                elemCtrProto = view.Element[protoProp],
+                objCtr = Object,
+                strTrim = String[protoProp].trim || function() {
+                    return this.replace(/^\s+|\s+$/g, "");
+                }, arrIndexOf = Array[protoProp].indexOf || function(item) {
+                    var
+                    i = 0,
+                        len = this.length;
+                    for (; i < len; i++) {
+                        if (i in this && this[i] === item) {
+                            return i;
+                        }
+                    }
+                    return -1;
+                },
+                // Vendors: please allow content code to instantiate DOMExceptions
+                DOMEx = function(type, message) {
+                    this.name = type;
+                    this.code = DOMException[type];
+                    this.message = message;
+                }, checkTokenAndGetIndex = function(classList, token) {
+                    if (token === "") {
+                        throw new DOMEx(
+                            "SYNTAX_ERR", "An invalid or illegal string was specified");
+                    }
+                    if (/\s/.test(token)) {
+                        throw new DOMEx(
+                            "INVALID_CHARACTER_ERR", "String contains an invalid character");
+                    }
+                    return arrIndexOf.call(classList, token);
+                }, ClassList = function(elem) {
+                    var
+                    trimmedClasses = strTrim.call(elem.getAttribute("class") || ""),
+                        classes = trimmedClasses ? trimmedClasses.split(/\s+/) : [],
+                        i = 0,
+                        len = classes.length;
+                    for (; i < len; i++) {
+                        this.push(classes[i]);
+                    }
+                    this._updateClassName = function() {
+                        elem.setAttribute("class", this.toString());
+                    };
+                }, classListProto = ClassList[protoProp] = [],
+                classListGetter = function() {
+                    return new ClassList(this);
+                };
+            // Most DOMException implementations don't allow calling DOMException's toString()
+            // on non-DOMExceptions. Error's toString() is sufficient here.
+            DOMEx[protoProp] = Error[protoProp];
+            classListProto.item = function(i) {
+                return this[i] || null;
+            };
+            classListProto.contains = function(token) {
+                token += "";
+                return checkTokenAndGetIndex(this, token) !== -1;
+            };
+            classListProto.add = function() {
+                var
+                tokens = arguments,
+                    i = 0,
+                    l = tokens.length,
+                    token, updated = false;
+                do {
+                    token = tokens[i] + "";
+                    if (checkTokenAndGetIndex(this, token) === -1) {
+                        this.push(token);
+                        updated = true;
+                    }
+                }
+                while (++i < l);
+
+                if (updated) {
+                    this._updateClassName();
+                }
+            };
+            classListProto.remove = function() {
+                var
+                tokens = arguments,
+                    i = 0,
+                    l = tokens.length,
+                    token, updated = false,
+                    index;
+                do {
+                    token = tokens[i] + "";
+                    index = checkTokenAndGetIndex(this, token);
+                    while (index !== -1) {
+                        this.splice(index, 1);
+                        updated = true;
+                        index = checkTokenAndGetIndex(this, token);
+                    }
+                }
+                while (++i < l);
+
+                if (updated) {
+                    this._updateClassName();
+                }
+            };
+            classListProto.toggle = function(token, force) {
+                token += "";
+
+                var
+                result = this.contains(token),
+                    method = result ?
+                        force !== true && "remove" :
+                        force !== false && "add";
+
+                if (method) {
+                    this[method](token);
+                }
+
+                if (force === true || force === false) {
+                    return force;
+                } else {
+                    return !result;
+                }
+            };
+            classListProto.toString = function() {
+                return this.join(" ");
+            };
+
+            if (objCtr.defineProperty) {
+                var classListPropDesc = {
+                    get: classListGetter,
+                    enumerable: true,
+                    configurable: true
+                };
+                try {
+                    objCtr.defineProperty(elemCtrProto, classListProp, classListPropDesc);
+                } catch (ex) { // IE 8 doesn't support enumerable:true
+                    if (ex.number === -0x7FF5EC54) {
+                        classListPropDesc.enumerable = false;
+                        objCtr.defineProperty(elemCtrProto, classListProp, classListPropDesc);
+                    }
+                }
+            } else if (objCtr[protoProp].__defineGetter__) {
+                elemCtrProto.__defineGetter__(classListProp, classListGetter);
+            }
+
+        }(self));
+
+    } else {
+        // There is full or partial native classList support, so just check if we need
+        // to normalize the add/remove and toggle APIs.
+
+        (function() {
+            "use strict";
+
+            var testElement = document.createElement("_");
+
+            testElement.classList.add("c1", "c2");
+
+            // Polyfill for IE 10/11 and Firefox <26, where classList.add and
+            // classList.remove exist but support only one argument at a time.
+            if (!testElement.classList.contains("c2")) {
+                var createMethod = function(method) {
+                    var original = DOMTokenList.prototype[method];
+
+                    DOMTokenList.prototype[method] = function(token) {
+                        var i, len = arguments.length;
+
+                        for (i = 0; i < len; i++) {
+                            token = arguments[i];
+                            original.call(this, token);
+                        }
+                    };
+                };
+                createMethod('add');
+                createMethod('remove');
+            }
+
+            testElement.classList.toggle("c3", false);
+
+            // Polyfill for IE 10 and Firefox <24, where classList.toggle does not
+            // support the second argument.
+            if (testElement.classList.contains("c3")) {
+                var _toggle = DOMTokenList.prototype.toggle;
+
+                DOMTokenList.prototype.toggle = function(token, force) {
+                    if (1 in arguments && !this.contains(token) === !force) {
+                        return force;
+                    } else {
+                        return _toggle.call(this, token);
+                    }
+                };
+
+            }
+
+            testElement = null;
+        }());
+    }
+
+}
+
+},{}],5:[function(require,module,exports){
 /*!
  * classie - class helper functions
  * from bonzo https://github.com/ded/bonzo
@@ -135,47 +357,75 @@ module.exports = require('./lib/classie');
 /*global define: false */
 'use strict';
 
-  // class helper functions from bonzo https://github.com/ded/bonzo
+// class helper functions from bonzo https://github.com/ded/bonzo
+var classList = require('./class_list_ployfill'),
+    classie;
 
-  function classReg( className ) {
+function classReg(className) {
     return new RegExp("(^|\\s+)" + className + "(\\s+|$)");
-  }
+}
 
-  // classList support for class management
-  // altho to be fair, the api sucks because it won't accept multiple classes at once
-  var hasClass, addClass, removeClass;
+function noop() {}
 
-  if (typeof document === "object" && 'classList' in document.documentElement ) {
-    hasClass = function( elem, c ) {
-      return elem.classList.contains( c );
-    };
-    addClass = function( elem, c ) {
-      elem.classList.add( c );
-    };
-    removeClass = function( elem, c ) {
-      elem.classList.remove( c );
-    };
-  }
-  else {
-    hasClass = function( elem, c ) {
-      return classReg( c ).test( elem.className );
-    };
-    addClass = function( elem, c ) {
-      if ( !hasClass( elem, c ) ) {
-        elem.className = elem.className + ' ' + c;
-      }
-    };
-    removeClass = function( elem, c ) {
-      elem.className = elem.className.replace( classReg( c ), ' ' );
-    };
-  }
+function isArr(classes) {
+    if (Array.isArray(classes)) {
+        return true;
+    } else if (Object.prototype.toString.call(classes) === '[object Array]') {
+        return true;
+    } else {
+        return false;
+    }
+}
 
-  function toggleClass( elem, c ) {
-    var fn = hasClass( elem, c ) ? removeClass : addClass;
-    fn( elem, c );
-  }
+function removeMultiple() {
+    var c = arguments[1],
+        elem = arguments[0];
+    c.forEach(function(value) {
+        if (classie.has(elem, value)) {
+            noop();
+        }
+        classie.removeClass(elem, value);
+    });
+}
 
-  var classie = {
+
+function addMultiple() {
+    var c = arguments[1],
+        elem = arguments[0];
+    c.forEach(function(value) {
+        if (classie.has(elem, value)) {
+            noop();
+        }
+        classie.addClass(elem, value);
+    });
+}
+
+function hasClass(elem, c) {
+    return elem.classList.contains(c);
+}
+
+function addClass(elem, c) {
+    if (isArr(c)) {
+        addMultiple.apply(this, arguments);
+    } else {
+        elem.classList.add(c);
+    }
+}
+
+function removeClass(elem, c) {
+    if (isArr(c)) {
+        removeMultiple.apply(this, arguments);
+    } else {
+        elem.classList.remove(c);
+    }
+}
+
+function toggleClass(elem, c) {
+    var fn = hasClass(elem, c) ? removeClass : addClass;
+    fn(elem, c);
+}
+
+var classie = {
     // full names
     hasClass: hasClass,
     addClass: addClass,
@@ -186,24 +436,19 @@ module.exports = require('./lib/classie');
     add: addClass,
     remove: removeClass,
     toggle: toggleClass
-  };
+};
 
-  // transport
+// transport
 
-  if ( typeof module === "object" && module && typeof module.exports === "object" ) {
+if (typeof module === "object" && module && typeof module.exports === "object") {
     // commonjs / browserify
     module.exports = classie;
-  } else {
+} else {
     // AMD
     define(classie);
-  }
+}
 
-  // If there is a window object, that at least has a document property,
-  // define classie
-  if ( typeof window === "object" && typeof window.document === "object" ) {
-    window.classie = classie;
-  }
-},{}],5:[function(require,module,exports){
+},{"./class_list_ployfill":4}],6:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -506,7 +751,7 @@ function isUndefined(arg) {
   return arg === void 0;
 }
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -531,38 +776,70 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
 var queue = [];
 var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
 
 function drainQueue() {
     if (draining) {
         return;
     }
+    var timeout = setTimeout(cleanUpNextTick);
     draining = true;
-    var currentQueue;
+
     var len = queue.length;
     while(len) {
         currentQueue = queue;
         queue = [];
-        var i = -1;
-        while (++i < len) {
-            currentQueue[i]();
+        while (++queueIndex < len) {
+            currentQueue[queueIndex].run();
         }
+        queueIndex = -1;
         len = queue.length;
     }
+    currentQueue = null;
     draining = false;
+    clearTimeout(timeout);
 }
+
 process.nextTick = function (fun) {
-    queue.push(fun);
-    if (!draining) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
         setTimeout(drainQueue, 0);
     }
 };
 
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
 process.title = 'browser';
 process.browser = true;
 process.env = {};
@@ -591,14 +868,14 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
     && typeof arg.fill === 'function'
     && typeof arg.readUInt8 === 'function';
 }
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -1188,7 +1465,7 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":8,"_process":7,"inherits":6}],10:[function(require,module,exports){
+},{"./support/isBuffer":9,"_process":8,"inherits":7}],11:[function(require,module,exports){
 /*
  * stylie.pushmenu
  * https://github.com/typesettin/stylie.pushmenu
@@ -1200,7 +1477,7 @@ function hasOwnProperty(obj, prop) {
 
 module.exports = require('./lib/stylie.pushmenu');
 
-},{"./lib/stylie.pushmenu":11}],11:[function(require,module,exports){
+},{"./lib/stylie.pushmenu":12}],12:[function(require,module,exports){
 /*
  * stylie.pushmenu
  * https://github.com/typesettin/stylie.pushmenu
@@ -1506,7 +1783,7 @@ PushMenu.prototype._toggleLevels = function () {
 
 module.exports = PushMenu;
 
-},{"classie":3,"detectcss":12,"events":5,"util":9,"util-extend":14}],12:[function(require,module,exports){
+},{"classie":3,"detectcss":13,"events":6,"util":10,"util-extend":15}],13:[function(require,module,exports){
 /*
  * detectCSS
  * http://github.amexpub.com/modules/detectCSS
@@ -1516,7 +1793,7 @@ module.exports = PushMenu;
 
 module.exports = require('./lib/detectCSS');
 
-},{"./lib/detectCSS":13}],13:[function(require,module,exports){
+},{"./lib/detectCSS":14}],14:[function(require,module,exports){
 /*
  * detectCSS
  * http://github.amexpub.com/modules
@@ -1555,7 +1832,7 @@ exports.prefixed = function(style){
     }
     return false;
 };
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -1590,7 +1867,7 @@ function extend(origin, add) {
   return origin;
 }
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 'use strict';
 var navlinks,
 	screenSizeElement,
@@ -1679,4 +1956,4 @@ window.addEventListener('load', function () {
 	window.StyliePushMenu = StyliePushMenu;
 });
 
-},{"../../index":1,"classie":3,"stylie.pushmenu":10}]},{},[15]);
+},{"../../index":1,"classie":3,"stylie.pushmenu":11}]},{},[16]);
