@@ -101,9 +101,9 @@ module.exports = function (grunt) {
 		less: {
 			development: {
 				options: {
-					sourceMap: true,
-					yuicompress: true,
-					compress: true
+					sourceMap: false,
+					yuicompress: false,
+					compress: false
 				},
 				files: {
 					'example/stylesheets/stylie.css': 'resources/stylesheets/stylie.less',

@@ -46,12 +46,12 @@ util.inherits(stylie, events.EventEmitter);
 
 /** module default configuration */
 stylie.prototype.options = {
-	screenxs: '20em',
-	screensm: '29em',
-	screenmd: '32em',
-	screenlg: '50em',
-	screenxl: '70em',
-	screenxx: '90em',
+	screenxs: '20rem',
+	screensm: '29rem',
+	screenmd: '32rem',
+	screenlg: '50rem',
+	screenxl: '70rem',
+	screenxx: '90rem',
 	screenSizeElement: null,
 	screenSizeValElement: null,
 	sizeContainerElement: window,
