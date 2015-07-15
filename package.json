@@ -2,11 +2,22 @@
   "title": "Stylie",
   "name": "stylie",
   "description": "Stylie is a barebones css framework generator for professionally designed style guides",
-  "version": "1.7.5",
+  "version": "2.0.0",
   "main": "index.js",
   "engines": {
     "node": ">=0.10.x"
   },
+  "author": {
+    "name": "Yaw Joseph Etse",
+    "email": "yaw.etse@gmail.com",
+    "url": "http://about.me/yawjosephetse"
+  },
+  "contributors": [
+    {
+      "name": "Veronica Coulombe",
+      "email": "veronica.coulombe@gmail.com"
+    }
+  ],
   "scripts": {
     "test": "mocha -R spec --recursive"
   },
