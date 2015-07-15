@@ -851,7 +851,7 @@ body {
 .ts h6 {
   font-family: lyontext, garamond, Georgia, serif;
   line-height: 120%;
-  margin: 1rem 0 0;
+  margin: 2rem 0 0;
 }
 .ts h1 small,
 .ts h2 small,
@@ -878,23 +878,23 @@ body {
 .ts p,
 .ts summary,
 .ts details {
-  margin: 1.5rem 0 0;
+  margin: 1rem 0 0;
 }
 .ts h1 {
-  font-size: 3rem;
+  font-size: 4rem;
 }
 .ts h2 {
-  font-size: 2.625rem;
+  font-size: 3.5rem;
 }
 .ts h3 {
-  font-size: 2.25rem;
+  font-size: 3rem;
 }
 .ts h4 {
-  font-size: 1.875rem;
+  font-size: 2.5rem;
 }
 .ts h5,
 .ts h6 {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 .ts ol li::marker {
   width: 30px;
